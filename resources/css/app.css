@@ -1,0 +1,49 @@
+/* นำเข้า Tailwind CSS Base */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* นำเข้า Custom Theme */
+@import './theme/colors.css';
+@import './theme/components.css';
+@import './theme/layout.css';
+@import './theme/utilities.css';
+
+/* ตั้งค่าฟอนต์หลักสำหรับทั้งเว็บไซต์ */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Prompt', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Animation CSS */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-in-up {
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* สีพื้นหลังพิเศษ */
+.bg-gradient {
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%);
+}

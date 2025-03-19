@@ -1,0 +1,158 @@
+/* นำเข้าไฟล์สี */
+@import './colors.css';
+
+/* ======= Layout หลัก ======= */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ======= Navbar ======= */
+.navbar {
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-link {
+  color: white;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.navbar-link:hover {
+  opacity: 1;
+}
+
+/* ======= Sidebar ======= */
+.sidebar {
+  width: 16rem;
+  background-color: var(--bg-card);
+  border-right: 1px solid var(--border-color);
+  overflow-y: auto;
+  height: 100%;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-menu {
+  padding: 1rem 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-primary);
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  opacity: 1;
+}
+
+.sidebar-item.active {
+  background-color: var(--primary-50);
+  color: var(--primary-700);
+  font-weight: 500;
+  opacity: 1;
+  border-right: 3px solid var(--primary-600);
+}
+
+.dark .sidebar-item.active {
+  background-color: var(--primary-900);
+  color: var(--primary-300);
+}
+
+.sidebar-item-icon {
+  margin-right: 0.75rem;
+}
+
+/* ======= Main Content ======= */
+.content {
+  flex: 1;
+  padding: 2rem;
+  background-color: var(--bg-primary);
+}
+
+.content-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ======= Bottom Navigation (Mobile) ======= */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-card);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--border-color);
+  z-index: 50;
+}
+
+.bottom-nav-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--gray-600);
+}
+
+.bottom-nav-item.active {
+  color: var(--primary-600);
+}
+
+.bottom-nav-icon {
+  margin-bottom: 0.25rem;
+}
+
+/* ======= Responsive ======= */
+@media (max-width: 768px) {
+  .bottom-nav {
+    display: block;
+  }
+  
+  .content {
+    padding-bottom: 5rem;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+}
