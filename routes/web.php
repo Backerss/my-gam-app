@@ -23,12 +23,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Behavior Routes - หน้าอื่นที่ใช้ layout
-Route::get('/behavior/deduct', function () {
-    return view('behavior.deduct'); // หน้านี้ extend จาก layouts.app
-});
+Route::get('/behavior/deduct', [BehaviorController::class, 'deduct'])->name('behavior.deduct');
 
 // Report routes
-Route::get('/reports/behavior', [ReportController::class, 'index'])->name('reports.behavior');
+Route::get('/reports/behavior', [ReportController::class, 'behavior'])->name('reports.behavior');
 Route::get('/reports/behavior/student/{id}', [ReportController::class, 'studentDetail'])->name('reports.student.detail');
 Route::get('/reports/behavior/export', [ReportController::class, 'exportPdf'])->name('reports.export');
 Route::get('/reports/behavior/export/{id}', [ReportController::class, 'exportPdf'])->name('reports.export.student');
