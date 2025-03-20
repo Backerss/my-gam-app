@@ -20,6 +20,14 @@ Route::get('/login', function() {
     return view('auth.login'); // ใช้หน้า login แบบ standalone
 })->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+
+// เพิ่ม routes สำหรับการลงทะเบียน
+Route::get('/register', function() {
+    return view('auth.register');
+})->name('register');
+
+Route::post('/register', [AuthController::class, 'register']);
+
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Behavior Routes - หน้าอื่นที่ใช้ layout
