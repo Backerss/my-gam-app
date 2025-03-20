@@ -53,7 +53,8 @@ class ReportController extends Controller
             'ธ.ค.' => 8,
         ];
         
-        return view('reports.behavior', compact('students', 'classDistribution', 'scoreRanges', 'monthlyIncidents'));
+        // เปลี่ยนจาก 'behavior.reports' เป็น 'behavior.behavior'
+        return view('behavior.behavior', compact('students', 'classDistribution', 'scoreRanges', 'monthlyIncidents'));
     }
     
     public function studentDetail($id)
@@ -81,7 +82,8 @@ class ReportController extends Controller
 
         $student = $students[$id];
 
-        return view('reports.student-detail', compact('student'));
+        // เปลี่ยนจาก 'reports.student-detail' เป็น 'behavior.student-detail'
+        return view('behavior.student-detail', compact('student'));
     }
     
     public function exportPdf(Request $request, $id = null)

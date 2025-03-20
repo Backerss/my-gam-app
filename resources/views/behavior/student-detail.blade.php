@@ -13,7 +13,7 @@
                     <span class="text-sm text-white opacity-90">{{ $student['class'] }}</span>
                 </div>
             </div>
-            <a href="{{ route('reports.export.student', $student['id']) }}" class="flex items-center px-4 py-2 bg-white text-indigo-600 rounded-lg hover:bg-gray-100 transition-colors shadow-sm">
+            <a href="{{ route('behavior.reports.student.export', $student['id']) }}" class="flex items-center px-4 py-2 bg-white text-indigo-600 rounded-lg hover:bg-gray-100 transition-colors shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
@@ -138,7 +138,7 @@
     
     <!-- Back Button -->
     <div class="flex justify-start mt-6">
-        <a href="{{ route('reports.behavior') }}" class="flex items-center text-indigo-600 hover:text-indigo-900">
+        <a href="{{ route('behavior.reports') }}" class="flex items-center text-indigo-600 hover:text-indigo-900">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>

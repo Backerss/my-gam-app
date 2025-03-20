@@ -7,7 +7,7 @@
         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
             <h1 class="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-0">รายงานพฤติกรรมนักเรียน</h1>
             <div class="flex flex-wrap gap-2 sm:space-x-2">
-                <a href="{{ route('reports.export') }}" class="flex items-center px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm">
+                <a href="{{ route('behavior.reports.export') }}" class="flex items-center px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
@@ -139,13 +139,13 @@
                         </td>
                         <td class="px-3 sm:px-6 py-2 sm:py-4 whitespace-nowrap text-right text-xs sm:text-sm font-medium">
                             <div class="flex items-center justify-end space-x-1 sm:space-x-2">
-                                <a href="{{ route('reports.student.detail', $student['id']) }}" class="text-indigo-600 hover:text-indigo-900">
+                                <a href="{{ route('behavior.reports.student', $student['id']) }}" class="text-indigo-600 hover:text-indigo-900">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
                                         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                                         <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
                                     </svg>
                                 </a>
-                                <a href="{{ route('reports.export.student', $student['id']) }}" class="text-red-600 hover:text-red-900">
+                                <a href="{{ route('behavior.reports.student.export', $student['id']) }}" class="text-red-600 hover:text-red-900">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                     </svg>

@@ -104,7 +104,7 @@
                         <h3 class="text-lg font-semibold text-gray-800 ml-4">รายงานและกราฟ</h3>
                     </div>
                     <p class="text-gray-600">วิเคราะห์ข้อมูลด้วยกราฟและรายงานที่หลากหลาย เพื่อติดตามพัฒนาการและแนวโน้มพฤติกรรม</p>
-                    <a href="{{ route('reports.behavior') }}" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800">
+                    <a href="{{ route('behavior.reports') }}" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800">
                         ดูรายงาน
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -191,7 +191,7 @@
                             <ul class="text-sm space-y-2">
                                 <li><a href="#" class="hover:text-white">แดชบอร์ด</a></li>
                                 <li><a href="{{ route('behavior.deduct') }}" class="hover:text-white">หักคะแนนพฤติกรรม</a></li>
-                                <li><a href="{{ route('reports.behavior') }}" class="hover:text-white">รายงานพฤติกรรม</a></li>
+                                <li><a href="{{ route('behavior.reports') }}" class="hover:text-white">รายงานพฤติกรรม</a></li>
                                 <li><a href="#" class="hover:text-white">จัดการนักเรียน</a></li>
                             </ul>
                         </div>
