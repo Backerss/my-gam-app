@@ -109,7 +109,7 @@
                             <!-- Dropdown menu -->
                             <div id="profile-dropdown" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-50">
                                 <div class="py-1" role="menu" aria-orientation="vertical">
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">ข้อมูลส่วนตัว</a>
+                                    <a href="{{ route('behavior.profile.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">ข้อมูลส่วนตัว</a>
                                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">ตั้งค่า</a>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
