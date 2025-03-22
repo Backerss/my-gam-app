@@ -1,66 +1,257 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
+  
+  # My Laravel Project
+  
+  [![PHP Version](https://img.shields.io/badge/PHP-8.1%2B-blue.svg)](https://www.php.net/)
+  [![Laravel Version](https://img.shields.io/badge/Laravel-Latest-red.svg)](https://laravel.com)
+  [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+  
+  <p>ระบบจัดการข้อมูลโรงเรียนสำหรับครูและผู้ปกครอง</p>
+</div>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+## 📋 เกี่ยวกับโปรเจคนี้
+
+โปรเจคนี้เป็นระบบจัดการข้อมูลโรงเรียนที่ออกแบบมาเพื่อเชื่อมโยงระหว่างครูและผู้ปกครอง ช่วยให้การติดตามพฤติกรรมและผลการเรียนของนักเรียนเป็นไปอย่างมีประสิทธิภาพ
+
+## ✨ คุณสมบัติหลัก
+
+- 🔐 **ระบบล็อกอินแยกสำหรับครูและผู้ปกครอง** - การเข้าถึงข้อมูลที่เหมาะสมตามบทบาท
+- 📊 **ติดตามพฤติกรรมนักเรียน** - บันทึกและติดตามพฤติกรรมได้แบบเรียลไทม์
+- 📱 **รองรับการใช้งานบนมือถือ** - ใช้งานได้ทุกที่ทุกเวลา
+- 🔔 **ระบบแจ้งเตือน** - แจ้งเตือนผู้ปกครองเมื่อมีข้อมูลสำคัญ
+
+## 🔧 ความต้องการของระบบ
+
+| ความต้องการ | เวอร์ชั่น |
+|------------|---------|
+| PHP        | >= 8.1  |
+| Composer   | 2.x     |
+| MySQL/MariaDB | 5.7+ / 10.5+ |
+| Node.js    | 16.x+   |
+| NPM        | 8.x+    |
+| Git        | 2.x+    |
+
+## 🚀 การติดตั้ง
+
+ทำตามขั้นตอนด้านล่างนี้เพื่อติดตั้งโปรเจคในเครื่องของคุณ:
+
+### 1️⃣ Clone โปรเจค
+
+```bash
+git clone [URL ของ repository ของคุณ]
+cd my-laravel-app
+```
+
+### 2️⃣ ติดตั้ง Dependencies
+
+```bash
+composer install
+npm install
+```
+
+### 3️⃣ ตั้งค่าไฟล์สภาพแวดล้อม
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+### 4️⃣ แก้ไขไฟล์ .env
+
+เปิดไฟล์ .env และตั้งค่าฐานข้อมูลของคุณ:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=database_name
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
+
+### 5️⃣ สร้างฐานข้อมูลและ Migrate
+
+```bash
+php artisan migrate
+```
+
+### 6️⃣ เพิ่มข้อมูลเริ่มต้น (ถ้ามี)
+
+```bash
+php artisan db:seed
+```
+
+### 7️⃣ สร้าง Assets
+
+```bash
+npm run dev
+```
+
+### 8️⃣ เริ่มเซิร์ฟเวอร์
+
+```bash
+php artisan serve
+```
+
+> **เข้าใช้งาน:** เซิร์ฟเวอร์จะทำงานที่ http://localhost:8000
+
+## 📂 โครงสร้างโปรเจค
+
+<details>
+<summary>คลิกเพื่อดูโครงสร้างโปรเจค</summary>
+
+```
+app/                # โค้ด PHP หลักของแอปพลิเคชัน
+├── Console/        # คำสั่ง Artisan
+├── Exceptions/     # Exception handlers
+├── Http/           # Controllers, Middleware, Requests
+├── Models/         # Eloquent Models
+├── Providers/      # Service Providers
+config/             # ไฟล์การตั้งค่าต่างๆ
+database/           # Database migrations และ seeds
+public/             # Document root ของเว็บไซต์
+resources/          # Views, assets และภาษา
+├── js/             # JavaScript files
+├── css/            # CSS files
+├── views/          # Blade templates
+routes/             # ไฟล์ route ต่างๆ
+storage/            # ไฟล์ที่อัปโหลด, logs, cache
+tests/              # Test cases
+vendor/             # Composer dependencies
+```
+
+</details>
+
+## 📖 วิธีการใช้งาน
+
+### สำหรับผู้ดูแลระบบ
+1. ล็อกอินด้วยบัญชีผู้ดูแลระบบที่ `/admin/login`
+2. จัดการผู้ใช้และสิทธิ์การเข้าถึงที่แผงควบคุม
+3. ตั้งค่าระบบและพารามิเตอร์ต่างๆ
+
+### สำหรับครู
+1. ล็อกอินที่หน้าหลักด้วยบัญชีครู
+2. จัดการข้อมูลนักเรียนและบันทึกพฤติกรรม
+3. ส่งการแจ้งเตือนไปยังผู้ปกครอง
+
+### สำหรับผู้ปกครอง
+1. ล็อกอินที่หน้าหลักด้วยบัญชีผู้ปกครอง
+2. ดูข้อมูลและความประพฤติของนักเรียน
+3. รับการแจ้งเตือนและติดต่อกับครู
+
+## 🌐 การ Deployment
+
+### การ Deploy บน Shared Hosting
+1. อัปโหลดไฟล์ทั้งหมดไปยังเซิร์ฟเวอร์
+2. ตั้งค่า Document Root ไปที่โฟลเดอร์ `public/`
+3. ตั้งค่า .env สำหรับการใช้งานจริง
+4. เรียกใช้คำสั่ง migration และ optimization:
+   ```bash
+   php artisan migrate --force
+   php artisan optimize
+   php artisan config:cache
+   php artisan route:cache
+   ```
+
+### การ Deploy ด้วย Docker
+```bash
+docker-compose up -d
+```
+
+## 👨‍💻 การพัฒนาต่อ
+
+<details>
+<summary>คลิกเพื่อดูขั้นตอนการพัฒนาต่อ</summary>
+
+1. สร้าง branch ใหม่สำหรับ feature หรือการแก้ไข:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. ทำการเปลี่ยนแปลงและ commit:
+   ```bash
+   git commit -m "Add new feature or fix"
+   ```
+
+3. Push branch ไปยัง repository:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+4. สร้าง Pull Request บน GitHub
+
+</details>
+
+## 🧪 การทดสอบ
+
+```bash
+# รันการทดสอบทั้งหมด
+php artisan test
+
+# รันการทดสอบเฉพาะ feature
+php artisan test --filter=FeatureTest
+
+# รันการทดสอบกับรายงานความครอบคลุม
+php artisan test --coverage
+```
+
+## 🛠️ เครื่องมือและเทคโนโลยีที่ใช้
+
+- [Laravel](https://laravel.com) - PHP Framework
+- [MySQL](https://www.mysql.com) - ฐานข้อมูล
+- [Tailwind CSS](https://tailwindcss.com) - CSS Framework
+- [Vue.js](https://vuejs.org) - JavaScript Framework
+
+## ❓ การแก้ไขปัญหา
+
+<details>
+<summary><b>ปัญหา: Permission denied</b></summary>
+<p>
+แก้ไขโดยให้สิทธิ์กับโฟลเดอร์ storage และ bootstrap/cache:
+
+```bash
+chmod -R 775 storage bootstrap/cache
+```
 </p>
+</details>
 
-## About Laravel
+<details>
+<summary><b>ปัญหา: Composer dependencies ไม่อัปเดต</b></summary>
+<p>
+ลองใช้คำสั่ง:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```bash
+composer dump-autoload
+```
+</p>
+</details>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<details>
+<summary><b>ปัญหา: NPM build ล้มเหลว</b></summary>
+<p>
+ลองล้างแคชและติดตั้งใหม่:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+npm cache clean --force
+rm -rf node_modules package-lock.json
+npm install
+```
+</p>
+</details>
 
-## Learning Laravel
+## 📞 การติดต่อและสนับสนุน
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- 🐛 [รายงานปัญหา](https://github.com/your-username/my-gam-app/issues)
+- 💬 [คำถามและคำตอบ](https://github.com/Backerss/my-gam-app/discussions)
+- 📧 อีเมล: asan.r@nsru.ac.th
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 📚 เอกสารเพิ่มเติม
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- [เอกสาร Laravel](https://laravel.com/docs)
+- [Laracasts](https://laracasts.com)
+- [วิดีโอสอนการใช้งาน](https://youtube.com/your-channel)
 
-## Laravel Sponsors
+## 📄 License
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+โปรเจคนี้ใช้ใบอนุญาต MIT License - ดูรายละเอียดได้ที่ [LICENSE](LICENSE) file.
