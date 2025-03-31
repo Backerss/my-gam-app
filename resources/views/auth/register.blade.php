@@ -347,7 +347,7 @@
                                     {{ old('role_category') == 'operations' ? 'required' : '' }}
                                 >
                                     <option value="" disabled selected>--- เลือกห้อง ---</option>
-                                    @for($i = 1; $i <= 10; $i++)
+                                    @for($i = 1; $i <= 12; $i++)
                                         <option value="{{ $i }}" {{ old('classroom_number') == $i ? 'selected' : '' }}>ห้อง {{ $i }}</option>
                                     @endfor
                                 </select>
