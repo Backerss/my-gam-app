@@ -140,11 +140,11 @@ class BehaviorController extends Controller
     }
 
     /**
-     * แสดงหน้าสร้างนักเรียน
+     * แสดงหน้าสร้างนักเรียนใหม่
      */
     public function createStudent()
     {
-        // ข้อมูลชั้นเรียน (สำหรับ dropdown ในฟอร์ม)
+        // ข้อมูลชั้นเรียนสำหรับ dropdown
         $classes = [
             'ม.1/1', 'ม.1/2', 'ม.1/3',
             'ม.2/1', 'ม.2/2', 'ม.2/3',
@@ -196,7 +196,7 @@ class BehaviorController extends Controller
             'parent_phone' => '089-876-5432',
         ];
         
-        // ข้อมูลชั้นเรียน (สำหรับ dropdown ในฟอร์ม)
+        // ข้อมูลชั้นเรียน
         $classes = [
             'ม.1/1', 'ม.1/2', 'ม.1/3',
             'ม.2/1', 'ม.2/2', 'ม.2/3',
@@ -227,12 +227,13 @@ class BehaviorController extends Controller
     }
 
     /**
-     * ลบข้อมูลนักเรียนจากฐานข้อมูล
+     * ลบข้อมูลนักเรียน
      */
     public function destroyStudent($id)
     {
-        // ในระบบจริง ลบข้อมูลจากฐานข้อมูล
-
-        return redirect()->route('behavior.students')->with('success', 'ลบข้อมูลนักเรียนสำเร็จ');
+        // ในระบบจริงจะลบข้อมูลจากฐานข้อมูล
+        
+        return redirect()->route('behavior.students')
+            ->with('success', 'ลบข้อมูลนักเรียนเรียบร้อยแล้ว');
     }
 }
