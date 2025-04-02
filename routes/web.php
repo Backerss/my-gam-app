@@ -47,6 +47,34 @@ Route::prefix('behavior')->name('behavior.')->group(function () {
     // หน้าโปรไฟล์
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+    // หน้าหลักจัดการนักเรียน
+    Route::get('/students', [App\Http\Controllers\BehaviorController::class, 'students'])->name('students');
+    
+    // เพิ่ม route สำหรับ create
+    Route::get('/students/create', [App\Http\Controllers\BehaviorController::class, 'createStudent'])->name('students.create');
+    Route::post('/students', [App\Http\Controllers\BehaviorController::class, 'storeStudent'])->name('students.store');
+    
+    // หน้าแสดงรายละเอียดนักเรียน
+    Route::get('/students/{id}', [App\Http\Controllers\BehaviorController::class, 'showStudent'])->name('students.show');
+    
+    // เพิ่ม route อื่นๆ สำหรับนักเรียน เช่น แก้ไข ลบ ฯลฯ
+    Route::get('/students/{id}/edit', [App\Http\Controllers\BehaviorController::class, 'editStudent'])->name('students.edit');
+    Route::put('/students/{id}', [App\Http\Controllers\BehaviorController::class, 'updateStudent'])->name('students.update');
+    Route::delete('/students/{id}', [App\Http\Controllers\BehaviorController::class, 'destroyStudent'])->name('students.destroy');
+});
+
+// Student Routes - จัดการข้อมูลนักเรียน
+Route::prefix('students')->name('students.')->group(function () {
+    Route::get('/', [App\Http\Controllers\StudentController::class, 'index'])->name('index');
+    Route::get('/create', [App\Http\Controllers\StudentController::class, 'create'])->name('create');
+    Route::post('/', [App\Http\Controllers\StudentController::class, 'store'])->name('store');
+    Route::get('/{id}', [App\Http\Controllers\StudentController::class, 'show'])->name('show');
+    Route::get('/{id}/edit', [App\Http\Controllers\StudentController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [App\Http\Controllers\StudentController::class, 'update'])->name('update');
+    Route::delete('/{id}', [App\Http\Controllers\StudentController::class, 'destroy'])->name('destroy');
+    Route::post('/import', [App\Http\Controllers\StudentController::class, 'import'])->name('import');
+    Route::get('/export', [App\Http\Controllers\StudentController::class, 'export'])->name('export');
 });
 
 // Parent Access Routes
