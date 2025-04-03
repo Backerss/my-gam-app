@@ -62,6 +62,16 @@ Route::prefix('behavior')->name('behavior.')->group(function () {
     Route::get('/students/{id}/edit', [App\Http\Controllers\BehaviorController::class, 'editStudent'])->name('students.edit');
     Route::put('/students/{id}', [App\Http\Controllers\BehaviorController::class, 'updateStudent'])->name('students.update');
     Route::delete('/students/{id}', [App\Http\Controllers\BehaviorController::class, 'destroyStudent'])->name('students.destroy');
+    
+    // Route สำหรับการแจ้งเตือน
+    Route::get('/notification', [NotificationController::class, 'index'])->name('notifications');
+    Route::post('/notification/mark-as-read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
+    
+    // เพิ่ม routes สำหรับการแจ้งเตือน
+    Route::get('/notifications', [App\Http\Controllers\NotificationController::class, 'index'])
+        ->name('notifications');
+    Route::post('/notifications/mark-read', [App\Http\Controllers\NotificationController::class, 'markAsRead'])
+        ->name('notifications.mark-read');
 });
 
 // Student Routes - จัดการข้อมูลนักเรียน
