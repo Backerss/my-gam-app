@@ -6,6 +6,8 @@ use App\Http\Controllers\BehaviorController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ParentController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +74,14 @@ Route::prefix('behavior')->name('behavior.')->group(function () {
         ->name('notifications');
     Route::post('/notifications/mark-read', [App\Http\Controllers\NotificationController::class, 'markAsRead'])
         ->name('notifications.mark-read');
+
+    // เส้นทางสำหรับหน้าตั้งค่า
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+    
+    // เส้นทางสำหรับบันทึกการตั้งค่าในแต่ละส่วน
+    Route::post('/settings/save-school', [SettingsController::class, 'saveSchoolSettings'])->name('settings.save-school');
+    Route::post('/settings/save-academic', [SettingsController::class, 'saveAcademicSettings'])->name('settings.save-academic');
+    Route::post('/settings/save-system', [SettingsController::class, 'saveSystemSettings'])->name('settings.save-system');
 });
 
 // Student Routes - จัดการข้อมูลนักเรียน
