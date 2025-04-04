@@ -11,7 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     
     <style>
         body {
@@ -31,6 +36,7 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
     </style>
+
 </head>
 <body class="antialiased bg-gray-50">
     <div class="relative min-h-screen">
