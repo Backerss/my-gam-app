@@ -1,16 +1,15 @@
-/* นำเข้า Tailwind CSS Base */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-/* นำเข้า Custom Theme */
-@import './theme/colors.css';
-@import './theme/components.css';
-@import './theme/layout.css';
-@import './theme/utilities.css';
-
 /* ตั้งค่าฟอนต์หลักสำหรับทั้งเว็บไซต์ */
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+
+/* Custom Bootstrap Theme */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bs-primary: #1020AD;
+  --bs-primary-rgb: 16, 32, 173;
+  --bs-secondary: #F6E200;
+  --bs-secondary-rgb: 246, 226, 0;
+}
 
 body {
   font-family: 'Prompt', sans-serif;
@@ -43,7 +42,156 @@ body {
   }
 }
 
-/* สีพื้นหลังพิเศษ */
+/* Custom Colors */
 .bg-gradient {
-  background: linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%);
+  background-color: #1020AD;
+}
+
+.bg-secondary {
+  background-color: #F6E200;
+}
+
+.text-primary {
+  color: #1020AD !important;
+}
+
+.text-secondary {
+  color: #F6E200 !important;
+}
+
+.text-indigo {
+  color: #1020AD !important;
+}
+
+.text-green {
+  color: #198754 !important;
+}
+
+.text-yellow {
+  color: #F6E200 !important;
+}
+
+.text-red {
+  color: #dc3545 !important;
+}
+
+.bg-primary-light {
+  background-color: #E6E8F7 !important;
+}
+
+.bg-secondary-light {
+  background-color: #FFFBCC !important;
+}
+
+.bg-indigo-light {
+  background-color: #E6E8F7 !important;
+}
+
+.bg-green-light {
+  background-color: #d1e7dd !important;
+}
+
+.bg-yellow-light {
+  background-color: #FFFBCC !important;
+}
+
+.bg-red-light {
+  background-color: #f8d7da !important;
+}
+
+/* Component Styles */
+.header-section {
+  padding-bottom: 8rem;
+}
+
+.feature-section {
+  margin-top: -6rem;
+}
+
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-border-top-indigo {
+  border-top: 4px solid #1020AD;
+}
+
+.card-border-top-green {
+  border-top: 4px solid #198754;
+}
+
+.card-border-top-orange {
+  border-top: 4px solid #fd7e14;
+}
+
+.feature-icon {
+  padding: 0.75rem;
+  border-radius: 50%;
+  display: inline-flex;
+}
+
+.icon-indigo {
+  background-color: #E6E8F7;
+  color: #1020AD;
+}
+
+.icon-green {
+  background-color: #d1e7dd;
+  color: #198754;
+}
+
+.icon-orange {
+  background-color: #ffe5d0;
+  color: #fd7e14;
+}
+
+.stats-card {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.footer-divider {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+/* Bootstrap Overrides */
+.btn-primary {
+  background-color: #1020AD;
+  border-color: #1020AD;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #0c1a8c;
+  border-color: #0c1a8c;
+}
+
+.btn-secondary {
+  background-color: #F6E200;
+  border-color: #F6E200;
+  color: #212529;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #e6d400;
+  border-color: #e6d400;
+  color: #212529;
+}
+
+.link-primary {
+  color: #1020AD;
+}
+
+.link-primary:hover {
+  color: #0c1a8c;
 }

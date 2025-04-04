@@ -10,56 +10,142 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Scripts -->
-    <!-- Styles -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     
     <style>
         body {
             font-family: 'Prompt', sans-serif;
-        }
-        
-        .bg-gradient {
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-        }
-        
+        }        
         .feature-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
         }
         
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+
+        .header-section {
+            padding-bottom: 8rem;
+        }
+
+        .feature-section {
+            margin-top: -6rem;
+        }
+
+        .card-border-top-indigo {
+            border-top: 4px solid #6610f2;
+        }
+
+        .card-border-top-green {
+            border-top: 4px solid #198754;
+        }
+
+        .card-border-top-orange {
+            border-top: 4px solid #fd7e14;
+        }
+
+        .feature-icon {
+            padding: 0.75rem;
+            border-radius: 50%;
+            display: inline-flex;
+        }
+
+        .icon-indigo {
+            background-color: #e0cffc;
+            color: #6610f2;
+        }
+
+        .icon-green {
+            background-color: #d1e7dd;
+            color: #198754;
+        }
+
+        .icon-orange {
+            background-color: #ffe5d0;
+            color: #fd7e14;
+        }
+
+        .stats-card {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .bg-indigo-light {
+            background-color: #e0cffc;
+        }
+
+        .text-indigo {
+            color: #6610f2;
+        }
+
+        .bg-green-light {
+            background-color: #d1e7dd;
+        }
+
+        .text-green {
+            color: #198754;
+        }
+
+        .bg-yellow-light {
+            background-color: #fff3cd;
+        }
+
+        .text-yellow {
+            color: #ffc107;
+        }
+
+        .bg-red-light {
+            background-color: #f8d7da;
+        }
+
+        .text-red {
+            color: #dc3545;
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+        }
     </style>
 
 </head>
-<body class="antialiased bg-gray-50">
-    <div class="relative min-h-screen">
+<body class="bg-light">
+    <div class="min-vh-100">
         <!-- Header with Gradient -->
-        <div class="bg-gradient shadow-lg pb-32">
-            <nav class="px-4 sm:px-6 lg:px-8 py-6">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white mr-2" viewBox="0 0 20 20" fill="currentColor">
+        <div class="bg-gradient shadow header-section">
+            <nav class="container-fluid py-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="me-2 text-white" width="32" height="32" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                         </svg>
-                        <h1 class="text-2xl font-bold text-white">ระบบตัดคะแนนพฤติกรรมนักเรียน</h1>
+                        <h4 class="fw-bold text-white mb-0">ระบบตัดคะแนนพฤติกรรมนักเรียน</h4>
                     </div>
                     
-                    <div class="hidden sm:flex space-x-4">
+                    <div class="d-none d-sm-flex">
                         @if (Route::has('login'))
-                            <div class="flex space-x-2">
+                            <div class="d-flex gap-2">
                                 @auth
-                                    <a href="{{ url('/dashboard') }}" class="px-4 py-2 bg-white text-indigo-600 rounded-lg font-medium hover:bg-gray-50">แดชบอร์ด</a>
+                                    <a href="{{ url('/dashboard') }}" class="btn btn-light text-primary">แดชบอร์ด</a>
                                 @else
-                                    <a href="{{ route('login') }}" class="px-4 py-2 bg-white text-indigo-600 rounded-lg font-medium hover:bg-gray-50">เข้าสู่ระบบ</a>
+                                    <a href="{{ route('login') }}" class="btn btn-light text-primary">เข้าสู่ระบบ</a>
                                     @if (Route::has('register'))
-                                        <a href="{{ route('register') }}" class="px-4 py-2 bg-indigo-500 text-white rounded-lg font-medium hover:bg-indigo-600">ลงทะเบียน</a>
+                                        <a href="{{ route('register') }}" class="btn btn-primary ms-2">ลงทะเบียน</a>
                                     @endif
                                 @endauth
                             </div>
@@ -68,154 +154,156 @@
                 </div>
             </nav>
             
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">ระบบจัดการและติดตามพฤติกรรมนักเรียน</h2>
-                <p class="text-indigo-100 max-w-2xl mx-auto text-lg">
+            <div class="container text-center py-5">
+                <h2 class="display-5 fw-bold text-white mb-3">ระบบจัดการและติดตามพฤติกรรมนักเรียน</h2>
+                <p class="text-white opacity-75 mx-auto" style="max-width: 600px;">
                     บันทึก ติดตาม และวิเคราะห์พฤติกรรมนักเรียนอย่างเป็นระบบ เพื่อการพัฒนาที่ยั่งยืน
                 </p>
             </div>
         </div>
         
         <!-- Main Content - Feature Cards -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="container feature-section">
+            <div class="row g-4">
                 <!-- Feature Card 1 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 feature-card border-t-4 border-indigo-500">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-indigo-100 p-3 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
+                <div class="col-md-4">
+                    <div class="card shadow feature-card card-border-top-indigo">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="feature-icon icon-indigo">
+                                    <i class="bi bi-gear-fill"></i>
+                                </div>
+                                <h3 class="h5 fw-semibold text-dark ms-3 mb-0">บันทึกพฤติกรรม</h3>
+                            </div>
+                            <p class="text-muted">บันทึกข้อมูลพฤติกรรมนักเรียนได้อย่างรวดเร็ว ทั้งการหักคะแนนและการเพิ่มคะแนนจากพฤติกรรมที่ดี</p>
+                            <a href="{{ route('behavior.deduct') }}" class="text-primary text-decoration-none d-inline-flex align-items-center">
+                                ใช้งานเลย
+                                <i class="bi bi-chevron-right ms-1 small"></i>
+                            </a>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-800 ml-4">บันทึกพฤติกรรม</h3>
                     </div>
-                    <p class="text-gray-600">บันทึกข้อมูลพฤติกรรมนักเรียนได้อย่างรวดเร็ว ทั้งการหักคะแนนและการเพิ่มคะแนนจากพฤติกรรมที่ดี</p>
-                    <a href="{{ route('behavior.deduct') }}" class="mt-4 inline-flex items-center text-indigo-600 hover:text-indigo-800">
-                        ใช้งานเลย
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
                 </div>
                 
                 <!-- Feature Card 2 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 feature-card border-t-4 border-green-500">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-green-100 p-3 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                            </svg>
+                <div class="col-md-4">
+                    <div class="card shadow feature-card card-border-top-green">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="feature-icon icon-green">
+                                    <i class="bi bi-bar-chart-line-fill"></i>
+                                </div>
+                                <h3 class="h5 fw-semibold text-dark ms-3 mb-0">รายงานและกราฟ</h3>
+                            </div>
+                            <p class="text-muted">วิเคราะห์ข้อมูลด้วยกราฟและรายงานที่หลากหลาย เพื่อติดตามพัฒนาการและแนวโน้มพฤติกรรม</p>
+                            <a href="{{ route('behavior.reports') }}" class="text-success text-decoration-none d-inline-flex align-items-center">
+                                ดูรายงาน
+                                <i class="bi bi-chevron-right ms-1 small"></i>
+                            </a>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-800 ml-4">รายงานและกราฟ</h3>
                     </div>
-                    <p class="text-gray-600">วิเคราะห์ข้อมูลด้วยกราฟและรายงานที่หลากหลาย เพื่อติดตามพัฒนาการและแนวโน้มพฤติกรรม</p>
-                    <a href="{{ route('behavior.reports') }}" class="mt-4 inline-flex items-center text-green-600 hover:text-green-800">
-                        ดูรายงาน
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
                 </div>
                 
                 <!-- Feature Card 3 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 feature-card border-t-4 border-orange-500">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-orange-100 p-3 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
+                <div class="col-md-4">
+                    <div class="card shadow feature-card card-border-top-orange">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="feature-icon icon-orange">
+                                    <i class="bi bi-people-fill"></i>
+                                </div>
+                                <h3 class="h5 fw-semibold text-dark ms-3 mb-0">จัดการนักเรียน</h3>
+                            </div>
+                            <p class="text-muted">จัดการข้อมูลนักเรียน ดูประวัติ และติดตามพฤติกรรมรายบุคคลอย่างละเอียด</p>
+                            <a href="#" class="text-warning text-decoration-none d-inline-flex align-items-center">
+                                จัดการนักเรียน
+                                <i class="bi bi-chevron-right ms-1 small"></i>
+                            </a>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-800 ml-4">จัดการนักเรียน</h3>
                     </div>
-                    <p class="text-gray-600">จัดการข้อมูลนักเรียน ดูประวัติ และติดตามพฤติกรรมรายบุคคลอย่างละเอียด</p>
-                    <a href="#" class="mt-4 inline-flex items-center text-orange-600 hover:text-orange-800">
-                        จัดการนักเรียน
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
                 </div>
             </div>
             
             <!-- Statistics Section -->
-            <div class="mt-12 bg-white rounded-xl shadow-lg p-6 mb-12">
-                <h3 class="text-xl font-bold text-gray-800 mb-6">ข้อมูลสรุปทั้งโรงเรียน</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div class="bg-indigo-50 rounded-lg p-4 text-center">
-                        <p class="text-sm text-gray-600 mb-1">จำนวนนักเรียนทั้งหมด</p>
-                        <p class="text-2xl font-bold text-indigo-700">142</p>
-                    </div>
+            <div class="card shadow my-5">
+                <div class="card-body">
+                    <h3 class="h4 fw-bold text-dark mb-4">ข้อมูลสรุปทั้งโรงเรียน</h3>
                     
-                    <div class="bg-green-50 rounded-lg p-4 text-center">
-                        <p class="text-sm text-gray-600 mb-1">คะแนนพฤติกรรมเฉลี่ย</p>
-                        <p class="text-2xl font-bold text-green-700">92.5</p>
-                    </div>
-                    
-                    <div class="bg-yellow-50 rounded-lg p-4 text-center">
-                        <p class="text-sm text-gray-600 mb-1">จำนวนเหตุการณ์เดือนนี้</p>
-                        <p class="text-2xl font-bold text-yellow-700">37</p>
-                    </div>
-                    
-                    <div class="bg-red-50 rounded-lg p-4 text-center">
-                        <p class="text-sm text-gray-600 mb-1">นักเรียนที่ต้องเฝ้าระวัง</p>
-                        <p class="text-2xl font-bold text-red-700">12</p>
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="stats-card bg-indigo-light">
+                                <p class="small text-muted mb-1">จำนวนนักเรียนทั้งหมด</p>
+                                <p class="h3 fw-bold text-indigo mb-0">142</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="stats-card bg-green-light">
+                                <p class="small text-muted mb-1">คะแนนพฤติกรรมเฉลี่ย</p>
+                                <p class="h3 fw-bold text-green mb-0">92.5</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="stats-card bg-yellow-light">
+                                <p class="small text-muted mb-1">จำนวนเหตุการณ์เดือนนี้</p>
+                                <p class="h3 fw-bold text-yellow mb-0">37</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="stats-card bg-red-light">
+                                <p class="small text-muted mb-1">นักเรียนที่ต้องเฝ้าระวัง</p>
+                                <p class="h3 fw-bold text-red mb-0">12</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- Call To Action -->
-        <div class="bg-gradient shadow-inner">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-                <h2 class="text-2xl font-bold text-white mb-4">เริ่มต้นใช้งานระบบวันนี้</h2>
-                <p class="text-indigo-100 max-w-2xl mx-auto mb-6">
-                    เครื่องมือที่ช่วยให้การติดตามพฤติกรรมนักเรียนเป็นเรื่องง่ายและมีประสิทธิภาพ
-                </p>
-                
-                <div class="mt-6">
-                    <a href="{{ route('login') }}" class="px-6 py-3 bg-white text-indigo-600 rounded-lg font-medium hover:bg-gray-100 shadow-md">
-                        เข้าสู่ระบบ
-                    </a>
-                </div>
-            </div>
+        <div class="bg-secondary" style="padding-top: 20vh;">
+            
         </div>
         
         <!-- Footer -->
-        <footer class="bg-gray-800 text-gray-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div class="md:flex md:justify-between">
-                    <div class="mb-6 md:mb-0">
-                        <h3 class="text-lg font-semibold text-white mb-2">ระบบตัดคะแนนพฤติกรรมนักเรียน</h3>
-                        <p class="text-sm">ระบบจัดการและติดตามพฤติกรรมนักเรียนอย่างมีประสิทธิภาพ</p>
+        <footer class="bg-dark text-white-50 py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h3 class="h5 text-white mb-2">ระบบตัดคะแนนพฤติกรรมนักเรียน</h3>
+                        <p class="small">ระบบจัดการและติดตามพฤติกรรมนักเรียนอย่างมีประสิทธิภาพ</p>
                     </div>
                     
-                    <div class="grid grid-cols-2 gap-8 md:gap-16">
-                        <div>
-                            <h4 class="text-sm font-semibold text-white mb-2">เมนูหลัก</h4>
-                            <ul class="text-sm space-y-2">
-                                <li><a href="#" class="hover:text-white">แดชบอร์ด</a></li>
-                                <li><a href="{{ route('behavior.deduct') }}" class="hover:text-white">หักคะแนนพฤติกรรม</a></li>
-                                <li><a href="{{ route('behavior.reports') }}" class="hover:text-white">รายงานพฤติกรรม</a></li>
-                                <li><a href="#" class="hover:text-white">จัดการนักเรียน</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h4 class="text-sm font-semibold text-white mb-2">ช่วยเหลือ</h4>
-                            <ul class="text-sm space-y-2">
-                                <li><a href="#" class="hover:text-white">คู่มือการใช้งาน</a></li>
-                                <li><a href="#" class="hover:text-white">คำถามที่พบบ่อย</a></li>
-                                <li><a href="#" class="hover:text-white">ติดต่อเรา</a></li>
-                            </ul>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-6">
+                                <h4 class="small fw-semibold text-white mb-2">เมนูหลัก</h4>
+                                <ul class="nav flex-column small">
+                                    <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-white-50">แดชบอร์ด</a></li>
+                                    <li class="nav-item mb-1"><a href="{{ route('behavior.deduct') }}" class="nav-link p-0 text-white-50">หักคะแนนพฤติกรรม</a></li>
+                                    <li class="nav-item mb-1"><a href="{{ route('behavior.reports') }}" class="nav-link p-0 text-white-50">รายงานพฤติกรรม</a></li>
+                                    <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-white-50">จัดการนักเรียน</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-6">
+                                <h4 class="small fw-semibold text-white mb-2">ช่วยเหลือ</h4>
+                                <ul class="nav flex-column small">
+                                    <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-white-50">คู่มือการใช้งาน</a></li>
+                                    <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-white-50">คำถามที่พบบ่อย</a></li>
+                                    <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-white-50">ติดต่อเรา</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row md:justify-between">
-                    <p class="text-xs mb-2 md:mb-0">&copy; {{ date('Y') }} ระบบตัดคะแนนพฤติกรรมนักเรียน. สงวนลิขสิทธิ์.</p>
-                    <p class="text-xs">เวอร์ชั่น 1.0.0</p>
+                <div class="footer-divider">
+                    <div class="d-flex flex-column flex-md-row justify-content-md-between">
+                        <p class="small mb-2 mb-md-0">&copy; {{ date('Y') }} ระบบตัดคะแนนพฤติกรรมนักเรียน. สงวนลิขสิทธิ์.</p>
+                        <p class="small">เวอร์ชั่น 1.0.0</p>
+                    </div>
                 </div>
             </div>
         </footer>
