@@ -1,66 +1,176 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ระบบจัดการและติดตามพฤติกรรมนักเรียน - คู่มือสำหรับนักพัฒนา
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## สารบัญ
+- [ภาพรวมของระบบ](#ภาพรวมของระบบ)
+- [เทคโนโลยีที่ใช้](#เทคโนโลยีที่ใช้)
+- [สิ่งที่ต้องเรียนรู้เบื้องต้น](#สิ่งที่ต้องเรียนรู้เบื้องต้น)
+- [วิธีการติดตั้งระบบ](#วิธีการติดตั้งระบบ)
+- [โครงสร้างโปรเจค](#โครงสร้างโปรเจค)
+- [ฐานข้อมูล](#ฐานข้อมูล)
+- [การพัฒนาต่อ](#การพัฒนาต่อ)
+- [การแก้ไขปัญหาเบื้องต้น](#การแก้ไขปัญหาเบื้องต้น)
 
-## About Laravel
+## ภาพรวมของระบบ
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+ระบบจัดการและติดตามพฤติกรรมนักเรียนเป็นเว็บแอปพลิเคชันที่พัฒนาด้วย Laravel Framework โดยมีความสามารถหลักดังนี้:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- การจัดการข้อมูลนักเรียน (เพิ่ม, แก้ไข, ลบ, นำเข้า)
+- การบันทึกและหักคะแนนพฤติกรรม
+- การออกรายงานสรุปพฤติกรรม
+- ระบบผู้ใช้หลายระดับ (ผู้ดูแลระบบ, ครู, ผู้ปกครอง)
+- ระบบแจ้งเตือน
+- การตั้งค่าระบบ
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## เทคโนโลยีที่ใช้
 
-## Learning Laravel
+- **Back-end:** PHP 8.2 + Laravel 10
+- **Front-end:** HTML, CSS (Tailwind CSS), JavaScript
+- **ฐานข้อมูล:** MySQL 8
+- **Server:** Apache หรือ Nginx
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## สิ่งที่ต้องเรียนรู้เบื้องต้น
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+สำหรับผู้พัฒนาที่ไม่มีพื้นฐานด้านการเขียนโค้ด ควรเรียนรู้สิ่งต่อไปนี้:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **พื้นฐาน PHP:** หลักการพื้นฐานของภาษา PHP (ตัวแปร, ฟังก์ชัน, คลาส)
+2. **Laravel เบื้องต้น:** โครงสร้าง MVC, Routing, Controller, View, Model
+3. **Tailwind CSS:** หลักการใช้งาน Utility Classes
+4. **ฐานข้อมูล:** พื้นฐาน MySQL และการเขียน SQL เบื้องต้น
+5. **Git:** การใช้ Version Control เบื้องต้น
 
-## Laravel Sponsors
+แหล่งเรียนรู้แนะนำ:
+- [Laravel - เอกสารทางการ](https://laravel.com/docs)
+- [PHP - W3Schools](https://www.w3schools.com/php/)
+- [Tailwind CSS - เอกสารทางการ](https://tailwindcss.com/docs)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## วิธีการติดตั้งระบบ
 
-### Premium Partners
+### ความต้องการของระบบ
+- PHP 8.2 หรือสูงกว่า
+- Composer
+- MySQL 8 หรือสูงกว่า
+- Node.js และ npm (สำหรับการพัฒนา)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### ขั้นตอนการติดตั้ง
 
-## Contributing
+1. **ติดตั้ง Software ที่จำเป็น:**
+    - [XAMPP](https://www.apachefriends.org/) หรือ [Laravel Homestead](https://laravel.com/docs/homestead)
+    - [Composer](https://getcomposer.org/download/)
+    - [Node.js และ npm](https://nodejs.org/)
+    - [Git](https://git-scm.com/downloads)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Clone โปรเจค:**
+    ```bash
+    git clone [URL_REPOSITORY]
+    cd my-laravel-app
+    ```
 
-## Code of Conduct
+3. **ติดตั้ง Dependencies:**
+    ```bash
+    composer install
+    npm install
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. **ตั้งค่าไฟล์ Environment:**
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
 
-## Security Vulnerabilities
+5. **แก้ไขไฟล์ .env:**
+    - แก้ไขการตั้งค่าฐานข้อมูล (DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. **สร้างฐานข้อมูล:**
+    - สร้างฐานข้อมูลใน MySQL ให้ตรงกับชื่อที่ระบุใน .env
 
-## License
+7. **รันคำสั่ง Migration เพื่อสร้างตาราง:**
+    ```bash
+    php artisan migrate
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+8. **รัน Seeder เพื่อเพิ่มข้อมูลเริ่มต้น (ถ้ามี):**
+    ```bash
+    php artisan db:seed
+    ```
+
+9. **Compile Assets:**
+    ```bash
+    npm run dev
+    ```
+
+10. **เริ่มต้นเซิร์ฟเวอร์:**
+     ```bash
+     php artisan serve
+     ```
+     เว็บแอปจะทำงานที่ http://localhost:8000
+
+## โครงสร้างโปรเจค
+
+- **app/:** โค้ดหลักของแอปพลิเคชัน
+  - **Http/Controllers/:** ตัวควบคุมต่างๆ (BehaviorController, StudentController, ฯลฯ)
+  - **Models/:** โมเดลสำหรับฐานข้อมูล (User, Student, ฯลฯ)
+  - **Providers/:** Service Providers
+- **config/:** ไฟล์การตั้งค่าต่างๆ
+- **database/:** Migration และ Seeders
+- **public/:** ไฟล์ที่เข้าถึงได้จากภายนอก (CSS, JS, รูปภาพ)
+- **resources/:**
+  - **views/:** หน้าเว็บแอปพลิเคชัน (Blade Templates)
+  - **css/:** ไฟล์ CSS ที่ยังไม่ได้ compile
+  - **js/:** ไฟล์ JavaScript ที่ยังไม่ได้ compile
+- **routes/:** การกำหนดเส้นทาง URL
+- **storage/:** ไฟล์ที่อัปโหลดและล็อก
+- **tests/:** การทดสอบอัตโนมัติ
+
+## ฐานข้อมูล
+
+ระบบใช้ฐานข้อมูล MySQL โดยมีตารางหลักดังนี้:
+
+1. **users:** ข้อมูลผู้ใช้ (ครู, ผู้ดูแลระบบ)
+2. **students:** ข้อมูลนักเรียน
+3. **behavior_records:** บันทึกพฤติกรรมนักเรียน
+4. **behavior_types:** ประเภทพฤติกรรม
+5. **classrooms:** ข้อมูลห้องเรียน
+6. **settings:** การตั้งค่าระบบ
+7. **notifications:** การแจ้งเตือน
+
+การอัพเดตโครงสร้างฐานข้อมูลทำได้โดยการแก้ไขหรือสร้างไฟล์ Migration ใหม่ใน `database/migrations/`
+
+## การพัฒนาต่อ
+
+1. **เพิ่มฟีเจอร์ใหม่:**
+    - สร้าง Controller ใหม่ใน `app/Http/Controllers/`
+    - เพิ่ม Route ใน `routes/web.php`
+    - สร้าง View ใน `resources/views/`
+
+2. **แก้ไขหน้าเว็บ:**
+    - แก้ไขไฟล์ Blade Template ใน `resources/views/`
+    - CSS อยู่ใน `resources/css/` หรือใช้ Tailwind CSS Utility Classes
+
+3. **การคอมไพล์ Assets:**
+    ```bash
+    npm run dev   # สำหรับการพัฒนา
+    npm run build # สำหรับ Production
+    ```
+
+## การแก้ไขปัญหาเบื้องต้น
+
+- **การล้างแคช:**
+  ```bash
+  php artisan cache:clear
+  php artisan config:clear
+  php artisan view:clear
+  php artisan route:clear
+  ```
+
+- **การอัพเดตหลังจาก Pull โค้ดใหม่:**
+  ```bash
+  composer install
+  php artisan migrate
+  npm install
+  npm run dev
+  ```
+
+- **ดูล็อกของแอปพลิเคชัน:**
+  ตรวจสอบไฟล์ `storage/logs/laravel.log`
+
+สำหรับปัญหาเพิ่มเติม สามารถติดต่อทีมพัฒนาเดิมหรือค้นหาข้อมูลเพิ่มเติมได้ที่ [Laravel Forums](https://laracasts.com/discuss) หรือ [Stack Overflow](https://stackoverflow.com/questions/tagged/laravel)
