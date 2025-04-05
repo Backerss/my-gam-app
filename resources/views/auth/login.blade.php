@@ -11,10 +11,12 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Scripts -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <style>
         body {
             font-family: 'Prompt', sans-serif;
@@ -37,21 +39,16 @@
 
         .form-control:focus {
             border-color: #4F46E5;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2) !important;
         }
 
-        .bg-gradient {
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        .btn-primary {
+            background-color: #4F46E5;
+            border-color: #4F46E5;
         }
-
-        .btn-gradient {
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-            transition: all 0.3s ease;
-        }
-
-        .btn-gradient:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        .btn-primary:hover {
+            background-color: #4338ca;
+            border-color: #4338ca;
         }
 
         .logo {
@@ -85,6 +82,43 @@
             animation: cardAppear 0.6s ease-out;
         }
 
+        .card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: none;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            z-index: 10;
+        }
+
+        .form-control-icon-left {
+            padding-left: 40px;
+        }
+
+        .text-indigo {
+            color: #4F46E5;
+        }
+
+        .text-indigo-light {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-check-input:checked {
+            background-color: #4F46E5;
+            border-color: #4F46E5;
+        }
+
         @keyframes cardAppear {
             0% {
                 opacity: 0;
@@ -99,34 +133,34 @@
 </head>
 <body>
     <div class="login-container">
-        <div class="card-animation bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="card card-animation">
             <!-- Header with logo -->
-            <div class="bg-gradient p-6 flex flex-col items-center">
-                <div class="logo bg-white mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+            <div class="bg-gradient p-4 text-center">
+                <div class="logo bg-white mb-3 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" style="height: 1.25rem; width: 1.25rem; color: #4F46E5;">
                         <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                     </svg>
                 </div>
-                <h1 class="text-xl font-bold text-white">ระบบตัดคะแนนพฤติกรรมนักเรียน</h1>
-                <p class="text-indigo-100 mt-1">กรุณาเข้าสู่ระบบเพื่อดำเนินการต่อ</p>
+                <h1 class="fs-4 fw-bold text-white">ระบบตัดคะแนนพฤติกรรมนักเรียน</h1>
+                <p class="text-indigo-light mt-1 mb-0">กรุณาเข้าสู่ระบบเพื่อดำเนินการต่อ</p>
             </div>
 
             <!-- Login Form -->
-            <div class="p-6">
+            <div class="card-body p-4">
                 @if ($errors->any())
-                    <div class="mb-4 bg-red-50 p-3 rounded-lg">
-                        <p class="text-red-800 text-sm font-medium">ข้อมูลไม่ถูกต้อง โปรดตรวจสอบและลองใหม่อีกครั้ง</p>
+                    <div class="alert alert-danger mb-4 py-2">
+                        <p class="fw-medium mb-0 small">ข้อมูลไม่ถูกต้อง โปรดตรวจสอบและลองใหม่อีกครั้ง</p>
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('login') }}" class="space-y-4">
+                <form method="POST" action="{{ route('login') }}" class="mb-0">
                     @csrf
 
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">อีเมล</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="mb-3">
+                        <label for="email" class="form-label small fw-medium">อีเมล</label>
+                        <div class="input-with-icon">
+                            <div class="input-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </div>
@@ -138,27 +172,27 @@
                                 required
                                 autocomplete="email"
                                 autofocus
-                                class="form-control block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 @error('email') border-red-500 @enderror"
+                                class="form-control form-control-icon-left @error('email') is-invalid @enderror"
                                 placeholder="ระบุอีเมลของคุณ"
                             >
                         </div>
                         @error('email')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    <div>
-                        <div class="flex items-center justify-between mb-1">
-                            <label for="password" class="block text-sm font-medium text-gray-700">รหัสผ่าน</label>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <label for="password" class="form-label small fw-medium">รหัสผ่าน</label>
                             @if (Route::has('password.request'))
-                                <a class="text-sm text-indigo-600 hover:text-indigo-800" href="{{ route('password.request') }}">
+                                <a class="small text-indigo text-decoration-none" href="{{ route('password.request') }}">
                                     ลืมรหัสผ่าน?
                                 </a>
                             @endif
                         </div>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div class="input-with-icon">
+                            <div class="input-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                 </svg>
                             </div>
@@ -168,39 +202,39 @@
                                 name="password"
                                 required
                                 autocomplete="current-password"
-                                class="form-control block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 @error('password') border-red-500 @enderror"
+                                class="form-control form-control-icon-left @error('password') is-invalid @enderror"
                                 placeholder="ระบุรหัสผ่านของคุณ"
                             >
                         </div>
                         @error('password')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    <div class="flex items-center">
+                    <div class="mb-3 form-check">
                         <input
                             id="remember"
                             type="checkbox"
                             name="remember"
-                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                            class="form-check-input"
                             {{ old('remember') ? 'checked' : '' }}
                         >
-                        <label for="remember" class="ml-2 block text-sm text-gray-700">
+                        <label for="remember" class="form-check-label small">
                             จดจำฉันไว้
                         </label>
                     </div>
 
-                    <div>
-                        <button type="submit" class="btn-gradient w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <div class="mb-0">
+                        <button type="submit" class="btn btn-primary w-100 py-2">
                             เข้าสู่ระบบ
                         </button>
                     </div>
                 </form>
 
                 @if (Route::has('register'))
-                    <div class="mt-6 text-center">
-                        <p class="text-sm text-gray-600">ยังไม่มีบัญชีผู้ใช้? 
-                            <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-800">
+                    <div class="text-center mt-4">
+                        <p class="small text-muted mb-0">ยังไม่มีบัญชีผู้ใช้? 
+                            <a href="{{ route('register') }}" class="fw-medium text-indigo text-decoration-none">
                                 ลงทะเบียนที่นี่
                             </a>
                         </p>
@@ -210,10 +244,13 @@
         </div>
 
         <!-- Footer -->
-        <div class="mt-6 text-center">
-            <p class="text-sm text-gray-500">&copy; {{ date('Y') }} ระบบตัดคะแนนพฤติกรรมนักเรียน</p>
-            <p class="text-xs text-gray-400 mt-1">เวอร์ชัน 1.0.0</p>
+        <div class="mt-4 text-center">
+            <p class="small text-muted mb-1">&copy; {{ date('Y') }} ระบบตัดคะแนนพฤติกรรมนักเรียน</p>
+            <p class="small text-muted opacity-75 mb-0">เวอร์ชัน 1.0.0</p>
         </div>
     </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
