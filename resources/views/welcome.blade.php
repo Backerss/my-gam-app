@@ -154,11 +154,18 @@
                 </div>
             </nav>
             
-            <div class="container text-center py-5">
-                <h2 class="display-5 fw-bold text-white mb-3">ระบบจัดการและติดตามพฤติกรรมนักเรียน</h2>
-                <p class="text-white opacity-75 mx-auto" style="max-width: 600px;">
-                    บันทึก ติดตาม และวิเคราะห์พฤติกรรมนักเรียนอย่างเป็นระบบ เพื่อการพัฒนาที่ยั่งยืน
-                </p>
+            <div class="container-fluid py-5">
+                <div class="row align-items-center">
+                    <div class="col-md-2 text-md-start text-center mb-3 mb-md-0">
+                        <img src="{{ asset('img/logo.png') }}" alt="Logo" class="img-fluid" style="max-height: 150px;">
+                    </div>
+                    <div class="col-md-10 text-center">
+                        <h2 class="display-5 fw-bold text-white mb-3">ระบบสารสนเทศจัดการคะแนนวินัยโรงเรียนนวมินทราชูทิศมัชฌิ</h2>
+                        <p class="text-white opacity-75">
+                            บันทึก ติดตาม และวิเคราะห์พฤติกรรมนักเรียนอย่างเป็นระบบ เพื่อการพัฒนาที่ยั่งยืน
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -224,41 +231,7 @@
             </div>
             
             <!-- Statistics Section -->
-            <div class="card shadow my-5">
-                <div class="card-body">
-                    <h3 class="h4 fw-bold text-dark mb-4">ข้อมูลสรุปทั้งโรงเรียน</h3>
-                    
-                    <div class="row g-4">
-                        <div class="col-md-3">
-                            <div class="stats-card bg-indigo-light">
-                                <p class="small text-muted mb-1">จำนวนนักเรียนทั้งหมด</p>
-                                <p class="h3 fw-bold text-indigo mb-0">142</p>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3">
-                            <div class="stats-card bg-green-light">
-                                <p class="small text-muted mb-1">คะแนนพฤติกรรมเฉลี่ย</p>
-                                <p class="h3 fw-bold text-green mb-0">92.5</p>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3">
-                            <div class="stats-card bg-yellow-light">
-                                <p class="small text-muted mb-1">จำนวนเหตุการณ์เดือนนี้</p>
-                                <p class="h3 fw-bold text-yellow mb-0">37</p>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3">
-                            <div class="stats-card bg-red-light">
-                                <p class="small text-muted mb-1">นักเรียนที่ต้องเฝ้าระวัง</p>
-                                <p class="h3 fw-bold text-red mb-0">12</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
         
         <!-- Call To Action -->
@@ -271,12 +244,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 mb-4 mb-md-0">
-                        <h3 class="h5 text-white mb-2">ระบบตัดคะแนนพฤติกรรมนักเรียน</h3>
+                        <h3 class="h5 text-white mb-2">ระบบจัดการคะแนนพฤติกรรมนักเรียนและติดตาม</h3>
                         <p class="small">ระบบจัดการและติดตามพฤติกรรมนักเรียนอย่างมีประสิทธิภาพ</p>
                     </div>
                     
                     <div class="col-md-8">
                         <div class="row">
+
+                            <div class="col-6">
+
+                            </div>
+
                             <div class="col-6">
                                 <h4 class="small fw-semibold text-white mb-2">เมนูหลัก</h4>
                                 <ul class="nav flex-column small">
@@ -286,25 +264,11 @@
                                     <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-white-50">จัดการนักเรียน</a></li>
                                 </ul>
                             </div>
-                            
-                            <div class="col-6">
-                                <h4 class="small fw-semibold text-white mb-2">ช่วยเหลือ</h4>
-                                <ul class="nav flex-column small">
-                                    <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-white-50">คู่มือการใช้งาน</a></li>
-                                    <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-white-50">คำถามที่พบบ่อย</a></li>
-                                    <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-white-50">ติดต่อเรา</a></li>
-                                </ul>
-                            </div>
+                        
                         </div>
                     </div>
                 </div>
                 
-                <div class="footer-divider">
-                    <div class="d-flex flex-column flex-md-row justify-content-md-between">
-                        <p class="small mb-2 mb-md-0">&copy; {{ date('Y') }} ระบบตัดคะแนนพฤติกรรมนักเรียน. สงวนลิขสิทธิ์.</p>
-                        <p class="small">เวอร์ชั่น 1.0.0</p>
-                    </div>
-                </div>
             </div>
         </footer>
     </div>
