@@ -28,6 +28,7 @@
             font-family: 'Prompt', sans-serif;
         }        
         .feature-card {
+            background-color: white;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
         }

@@ -1,5 +1,5 @@
 :root {
-  /* หลัก */
+  /* หลัก Primary Blue (#1020AD) */
   --primary-50: #eff6ff;
   --primary-100: #dbeafe;
   --primary-200: #bfdbfe;
@@ -64,32 +64,16 @@
   --warning-900: #78350f;
   --warning-950: #451a03;
   
-  /* รองเท้า */
-  --secondary-50: #f5f3ff;
-  --secondary-100: #ede9fe;
-  --secondary-200: #ddd6fe;
-  --secondary-300: #c4b5fd;
-  --secondary-400: #a78bfa;
-  --secondary-500: #8b5cf6;
-  --secondary-600: #7c3aed; /* สีรอง */
-  --secondary-700: #6d28d9;
-  --secondary-800: #5b21b6;
-  --secondary-900: #4c1d95;
-  --secondary-950: #2e1065;
-}
-
-/* สีพื้นฐานในโหมดมืด */
-.dark {
-  --bg-primary: var(--gray-900);
-  --text-primary: var(--gray-100);
-  --bg-card: var(--gray-800);
-  --border-color: var(--gray-700);
-}
-
-/* สีพื้นฐานในโหมดสว่าง */
-:root:not(.dark) {
-  --bg-primary: var(--gray-50);
-  --text-primary: var(--gray-900);
-  --bg-card: white;
-  --border-color: var(--gray-200);
+  /* รองเท้า Secondary Yellow (#F6E200) */
+  --secondary-50: #fffee0;
+  --secondary-100: #fffbc2;
+  --secondary-200: #fff885;
+  --secondary-300: #fff047;
+  --secondary-400: #faeb1a;
+  --secondary-500: #F6E200; /* สีรอง */
+  --secondary-600: #d7c700;
+  --secondary-700: #b3a400;
+  --secondary-800: #908200;
+  --secondary-900: #776a00;
+  --secondary-950: #403800;
 }

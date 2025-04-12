@@ -1,0 +1,17 @@
+/* 
+ * Main Theme File - Imports all theme components 
+ */
+
+/* 1. Import colors first */
+@import 'theme/colors.css';
+
+/* 2. Import utilities */
+@import 'theme/utilities.css';
+
+/* 3. Import layout components */
+@import 'theme/layout.css';
+
+/* 4. Import UI components */
+@import 'theme/components.css';
+
+/* 5. Misc/additional styles */

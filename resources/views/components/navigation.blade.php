@@ -1,66 +1,84 @@
 <div class="navigation-container">
     <!-- Desktop Sidebar -->
-    <aside id="sidebar" class="bg-white border-r border-gray-200 shadow-sm sidenav hidden md:flex md:flex-col fixed h-full">
-        <div class="flex flex-col h-full w-64">
+    <aside id="sidebar" class="bg-white border-end border-light shadow-sm d-none d-md-flex flex-column position-fixed h-100" style="width: 256px; top: 64px; z-index: 30;">
+        <div class="d-flex flex-column h-100">
             
             <!-- Navigation Content -->
-            <div class="overflow-y-auto flex-1 py-4">
-                <nav class="px-2 space-y-1">
+            <div class="overflow-auto flex-grow-1 py-4">
+                <nav class="px-2 nav-menu">
                     <!-- Dashboard Link -->
-                    <a href="{{ route('behavior.dashboard') }}" class="nav-item {{ request()->routeIs('behavior.dashboard') ? 'active' : '' }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
+                    <a href="{{ route('behavior.dashboard') }}" class="nav-item-custom {{ request()->routeIs('behavior.dashboard') ? 'active' : '' }}">
+                        <i class="bi bi-house-door nav-icon"></i>
                         <span>แดชบอร์ด</span>
                     </a>
                     
                     <!-- Behavior Deduction Link -->
-                    <a href="/behavior/deduct" class="nav-item {{ request()->is('behavior/deduct*') ? 'active' : '' }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
+                    <a href="/behavior/deduct" class="nav-item-custom {{ request()->is('behavior/deduct*') ? 'active' : '' }}">
+                        <i class="bi bi-gear nav-icon"></i>
                         <span>หักคะแนนพฤติกรรม</span>
                     </a>
                     
                     <!-- Student Management Link -->
-                    <a href="{{ route('behavior.students') }}" class="nav-item {{ request()->is('behavior/students*') ? 'active' : '' }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
+                    <a href="{{ route('behavior.students') }}" class="nav-item-custom {{ request()->is('behavior.students*') ? 'active' : '' }}">
+                        <i class="bi bi-people nav-icon"></i>
                         <span>จัดการนักเรียน</span>
                     </a>
                     
                     <!-- Reports Link -->
-                    <a href="{{ route('behavior.reports') }}" class="nav-item {{ request()->is('reports/behavior*') ? 'active' : '' }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
+                    <a href="{{ route('behavior.reports') }}" class="nav-item-custom {{ request()->is('reports/behavior*') ? 'active' : '' }}">
+                        <i class="bi bi-bar-chart nav-icon"></i>
                         <span>รายงาน</span>
                     </a>
                     
                     <!-- Settings Link -->
-                    <a href="{{ route('behavior.settings') }}" class="nav-item {{ request()->is('behavior/settings*') ? 'active' : '' }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
+                    <a href="{{ route('behavior.settings') }}" class="nav-item-custom {{ request()->is('behavior/settings*') ? 'active' : '' }}">
+                        <i class="bi bi-gear-fill nav-icon"></i>
                         <span>ตั้งค่า</span>
                     </a>
                 </nav>
             </div>
             
             <!-- Footer Info -->
-            <div class="border-t border-gray-200 p-4 bg-gray-50">
-                <div class="flex items-center text-xs text-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+            <div class="border-top border-light p-3 bg-light">
+                <div class="d-flex align-items-center text-muted small">
+                    <i class="bi bi-info-circle me-2"></i>
                     <span>เวอร์ชัน 1.0.0</span>
                 </div>
             </div>
         </div>
     </aside>
+    
+    <!-- Mobile Bottom Navigation (will be shown on small screens) -->
+    <nav class="d-md-none fixed-bottom bg-white border-top" style="display: none;">
+        <div class="container-fluid">
+            <div class="row text-center py-2">
+                <div class="col">
+                    <a href="{{ route('behavior.dashboard') }}" class="d-flex flex-column align-items-center text-decoration-none {{ request()->routeIs('behavior.dashboard') ? 'text-primary' : 'text-muted' }}">
+                        <i class="bi bi-house-door"></i>
+                        <span class="small">หน้าหลัก</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="/behavior/deduct" class="d-flex flex-column align-items-center text-decoration-none {{ request()->is('behavior/deduct*') ? 'text-primary' : 'text-muted' }}">
+                        <i class="bi bi-gear"></i>
+                        <span class="small">หักคะแนน</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('behavior.students') }}" class="d-flex flex-column align-items-center text-decoration-none {{ request()->is('behavior.students*') ? 'text-primary' : 'text-muted' }}">
+                        <i class="bi bi-people"></i>
+                        <span class="small">นักเรียน</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('behavior.reports') }}" class="d-flex flex-column align-items-center text-decoration-none {{ request()->is('reports/behavior*') ? 'text-primary' : 'text-muted' }}">
+                        <i class="bi bi-bar-chart"></i>
+                        <span class="small">รายงาน</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 </div>
 
 <style>
@@ -88,14 +106,14 @@
 
     .nav-item:hover {
         background-color: #EEF2FF; /* bg-indigo-50 */
-        color: #4F46E5; /* text-indigo-600 */
+        color: #1020AD; /* text-indigo-600 */
     }
 
     .nav-item.active {
         background-color: #EEF2FF; /* bg-indigo-50 */
-        color: #4338CA; /* text-indigo-700 */
+        color: #1020AD; /* text-indigo-700 */
         font-weight: 600;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 2px #1020ad46;
     }
 
     .nav-icon {

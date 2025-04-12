@@ -13,17 +13,6 @@
   cursor: pointer;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%);
-  color: white;
-  border: none;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
 .btn-secondary {
   background-color: white;
   color: var(--gray-700);
@@ -178,4 +167,92 @@
 .dark .badge-warning {
   background-color: var(--warning-900);
   color: var(--warning-200);
+}
+
+/* ======= Tailwind-like Cards ======= */
+.tw-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.tw-card-bordered {
+  border: 1px solid var(--gray-200);
+}
+
+.tw-card-shadow-sm {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.tw-card-shadow {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.tw-card-shadow-md {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.tw-card-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.tw-card-shadow-xl {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.tw-card-header {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.tw-card-body {
+  padding: 1.25rem;
+}
+
+.tw-card-footer {
+  padding: 1.25rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+/* Card spacing variants */
+.tw-card-compact .tw-card-header,
+.tw-card-compact .tw-card-body,
+.tw-card-compact .tw-card-footer {
+  padding: 0.75rem;
+}
+
+.tw-card-normal .tw-card-header,
+.tw-card-normal .tw-card-body,
+.tw-card-normal .tw-card-footer {
+  padding: 1.25rem;
+}
+
+.tw-card-relaxed .tw-card-header,
+.tw-card-relaxed .tw-card-body,
+.tw-card-relaxed .tw-card-footer {
+  padding: 1.75rem;
+}
+
+/* Dark mode support */
+.dark .tw-card {
+  background-color: var(--gray-800);
+}
+
+.dark .tw-card-bordered {
+  border-color: var(--gray-700);
+}
+
+.dark .tw-card-header {
+  border-bottom-color: var(--gray-700);
+}
+
+.dark .tw-card-footer {
+  border-top-color: var(--gray-700);
+}
+
+/* Card with hover effect */
+.tw-card-hover:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
