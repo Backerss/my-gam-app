@@ -105,3 +105,9 @@ Route::prefix('parent')->name('parent.')->group(function () {
         ->name('student.report')
         ->middleware('verify.parent.access');
 });
+
+// เพิ่ม route สำหรับ profile
+Route::prefix('profile')->name('profile.')->group(function () {
+    Route::get('/', [ProfileController::class, 'show'])->name('show');
+    Route::put('/update', [ProfileController::class, 'update'])->name('update');
+});

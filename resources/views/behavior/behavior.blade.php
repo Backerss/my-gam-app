@@ -3,17 +3,19 @@
 @section('content')
 <div>
     <!-- Page Header - ปรับปรุงสำหรับมือถือ -->
+    
+
     <div class="mb-4 sm:mb-6">
-        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-            <h1 class="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-0">รายงานพฤติกรรมนักเรียน</h1>
-            <div class="flex flex-wrap gap-2 sm:space-x-2">
-                <a href="{{ route('behavior.reports.export') }}" class="flex items-center px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm">
+        <div class="flex flex-row justify-between items-center">
+            <h1 class="text-xl sm:text-2xl font-bold text-gray-800">รายงานพฤติกรรมนักเรียน</h1>
+            <div class="flex space-x-2">
+                <a href="{{ route('behavior.reports.export') }}" class="flex items-center px-3 py-2 bg-danger text-white rounded-lg hover:bg-red-700 text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                     <span>PDF</span>
                 </a>
-                <button class="flex items-center px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm">
+                <button class="flex items-center btn px-3 py-2 border-none bg-indigo-light text-gray-700 rounded-lg text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                     </svg>
@@ -25,25 +27,33 @@
 
     <!-- Stats Cards - ปรับปรุงสำหรับมือถือ -->
     <div class="grid grid-cols-1 gap-3 mb-4 sm:grid-cols-3 sm:gap-4 sm:mb-6">
-        <div class="bg-white rounded-lg shadow p-3 sm:p-4 border-l-4 border-indigo-500">
-            <p class="text-xs sm:text-sm text-gray-500 mb-1">จำนวนนักเรียนทั้งหมด</p>
-            <div class="flex justify-between items-center">
-                <p class="text-xl sm:text-2xl font-bold">{{ count($students) }}</p>
-                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">ทั้งหมด</span>
+        <div class="card dashboard-card bg-white rounded-lg shadow h-full border-l-4 border-indigo-500">
+            <div class="card-body p-3 sm:p-4">
+                <p class="sm:text-sm text-gray-500 mb-1">จำนวนนักเรียนทั้งหมด</p>
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl sm:text-2xl font-bold mb-0">{{ count($students) }}</h2>
+                    <span class="badge bg-indigo text-indigo-800 text-xs px-2 py-1 rounded">ทั้งหมด</span>
+                </div>
             </div>
         </div>
-        <div class="bg-white rounded-lg shadow p-3 sm:p-4 border-l-4 border-green-500">
-            <p class="text-xs sm:text-sm text-gray-500 mb-1">คะแนนพฤติกรรมเฉลี่ย</p>
-            <div class="flex justify-between items-center">
-                <p class="text-xl sm:text-2xl font-bold">{{ number_format(collect($students)->avg('current_score'), 1) }}</p>
-                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">+{{ number_format(collect($students)->where('score_change', '>', 0)->avg('score_change'), 1) }}</span>
+        
+        <div class="card dashboard-card bg-white rounded-lg shadow h-full border-l-4 border-green-500">
+            <div class="card-body p-3 sm:p-4">
+                <p class="sm:text-sm text-gray-500 mb-1">คะแนนพฤติกรรมเฉลี่ย</p>
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl sm:text-2xl font-bold mb-0">{{ number_format(collect($students)->avg('current_score'), 1) }}</h2>
+                    <span class="badge bg-green text-green-800 text-xs px-2 py-1 rounded">+{{ number_format(collect($students)->where('score_change', '>', 0)->avg('score_change'), 1) }}</span>
+                </div>
             </div>
         </div>
-        <div class="bg-white rounded-lg shadow p-3 sm:p-4 border-l-4 border-red-500">
-            <p class="text-xs sm:text-sm text-gray-500 mb-1">นักเรียนที่มีปัญหา</p>
-            <div class="flex justify-between items-center">
-                <p class="text-xl sm:text-2xl font-bold">{{ collect($students)->where('score_change', '<', 0)->count() }}</p>
-                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">เดือนนี้</span>
+        
+        <div class="card dashboard-card bg-white rounded-lg shadow h-full border-l-4 border-red-500">
+            <div class="card-body p-3 sm:p-4">
+                <p class="sm:text-sm text-gray-500 mb-1">นักเรียนที่มีปัญหา</p>
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl sm:text-2xl font-bold mb-0">{{ collect($students)->where('score_change', '<', 0)->count() }}</h2>
+                    <span class="badge bg-red text-red-800 text-xs px-2 py-1 rounded">เดือนนี้</span>
+                </div>
             </div>
         </div>
     </div>
@@ -57,20 +67,22 @@
             </div>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-            <div class="bg-white rounded-lg shadow p-3 sm:p-4">
-                <h3 class="text-sm font-medium text-gray-700 mb-2">ช่วงคะแนนพฤติกรรม</h3>
-                <div class="h-48 md:h-56">
+
+        <div class="flex flex-col md:flex-row gap-3 sm:gap-4 mb-3 sm:mb-4 w-full">
+            <div class="bg-white rounded-lg shadow p-4 sm:p-6 w-full md:w-1/2">
+                <h3 class="text-sm sm:text-base font-medium text-gray-700 mb-3">ช่วงคะแนนพฤติกรรม</h3>
+                <div class="h-64 sm:h-72 md:h-80">
                     <canvas id="scoreRangesChart"></canvas>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow p-3 sm:p-4">
-                <h3 class="text-sm font-medium text-gray-700 mb-2">เหตุการณ์รายเดือน</h3>
-                <div class="h-48 md:h-56">
+            <div class="bg-white rounded-lg shadow p-4 sm:p-6 w-full md:w-1/2">
+                <h3 class="text-sm sm:text-base font-medium text-gray-700 mb-3">เหตุการณ์รายเดือน</h3>
+                <div class="h-64 sm:h-72 md:h-80">
                     <canvas id="monthlyIncidentsChart"></canvas>
                 </div>
             </div>
         </div>
+        
     </div>
 
     <!-- Search Bar - ปรับขนาดให้พอดีกับหน้าจอ -->

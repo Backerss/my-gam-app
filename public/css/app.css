@@ -64,6 +64,22 @@ body {
   background-color: #F6E200 !important;
 }
 
+.bg-red {
+  background-color: #dc3545 !important;
+}
+.bg-green {
+  background-color: #198754 !important;
+}
+.bg-yellow {
+  background-color: #F6E200 !important;
+}
+.bg-indigo {
+  background-color: #1020AD !important;
+}
+.bg-orange {
+  background-color: #fd7e14 !important;
+}
+
 .text-primary {
   color: #1020AD !important;
 }
