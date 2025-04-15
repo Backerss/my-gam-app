@@ -2,432 +2,260 @@
 
 @section('content')
 <div class="fade-in">
-    <!-- Hero Header Section with Animated Elements -->
-    <div class="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 rounded-xl p-8 mb-8 shadow-xl text-white relative overflow-hidden">
-        <div class="absolute -top-24 -right-24">
-            <div class="text-white/5">
-                <svg width="400" height="400" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform rotate-12 animate-pulse">
-                    <path d="M49 8H7C4.79086 8 3 9.79086 3 12V44C3 46.2091 4.79086 48 7 48H49C51.2091 48 53 46.2091 53 44V12C53 9.79086 51.2091 8 49 8Z" stroke="currentColor" stroke-width="2"/>
-                    <path d="M8 16H30M8 24H20M8 32H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="42" cy="28" r="8" stroke="currentColor" stroke-width="2"/>
-                    <path d="M36 34L33 37" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </div>
-        </div>
-        <div class="relative z-10">
-            <div class="flex items-center">
-                <div class="p-3 bg-white/10 rounded-lg mr-4 backdrop-blur-sm shadow-inner">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                </div>
-                <div>
-                    <h1 class="text-3xl sm:text-4xl font-bold mb-1 tracking-tight">ตั้งค่าระบบ</h1>
-                    <p class="text-indigo-100 text-lg">ปรับแต่งการทำงานและการแสดงผลของระบบพฤติกรรมนักเรียน</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">
+                                <i class="fas fa-cogs me-2"></i>ตั้งค่าระบบ
+                            </h5>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
 
-    <!-- Settings Container with Animated Entry -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <!-- Sidebar Navigation -->
-        <div class="lg:col-span-1">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 sticky top-24">
-                <!-- Settings Categories -->
-                <div class="p-4 bg-gray-50 border-b border-gray-100">
-                    <h2 class="font-semibold text-gray-800">หมวดหมู่การตั้งค่า</h2>
-                </div>
-                <nav class="flex flex-col p-3">
-                    <button class="settings-nav-item active group" data-tab="general">
-                        <div class="p-2 bg-indigo-100 rounded-lg text-indigo-600 group-hover:bg-indigo-200 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                            </svg>
-                        </div>
-                        <div class="ml-3">
-                            <div class="text-sm font-medium text-gray-900">ตั้งค่าทั่วไป</div>
-                            <div class="text-xs text-gray-500">ข้อมูลโรงเรียนและการทำงานพื้นฐาน</div>
-                        </div>
-                    </button>
-                    
-                    <button class="settings-nav-item group" data-tab="scores">
-                        <div class="p-2 bg-gray-100 rounded-lg text-gray-600 group-hover:bg-indigo-200 group-hover:text-indigo-600 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                            </svg>
-                        </div>
-                        <div class="ml-3">
-                            <div class="text-sm font-medium text-gray-900">คะแนนพฤติกรรม</div>
-                            <div class="text-xs text-gray-500">กำหนดเกณฑ์คะแนนและการตัดคะแนน</div>
-                        </div>
-                    </button>
-                    
-                    <button class="settings-nav-item group" data-tab="notifications">
-                        <div class="p-2 bg-gray-100 rounded-lg text-gray-600 group-hover:bg-indigo-200 group-hover:text-indigo-600 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                            </svg>
-                        </div>
-                        <div class="ml-3">
-                            <div class="text-sm font-medium text-gray-900">การแจ้งเตือน</div>
-                            <div class="text-xs text-gray-500">ตั้งค่าระบบแจ้งเตือนและการส่งข้อความ</div>
-                        </div>
-                    </button>
-                    
-                    <button class="settings-nav-item group" data-tab="backup">
-                        <div class="p-2 bg-gray-100 rounded-lg text-gray-600 group-hover:bg-indigo-200 group-hover:text-indigo-600 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                            </svg>
-                        </div>
-                        <div class="ml-3">
-                            <div class="text-sm font-medium text-gray-900">สำรองข้อมูล</div>
-                            <div class="text-xs text-gray-500">ตั้งค่าการสำรองและกู้คืนข้อมูล</div>
-                        </div>
-                    </button>
-                </nav>
-            </div>
-        </div>
-        
-        <!-- Settings Content -->
-        <div class="lg:col-span-3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                <!-- General Settings Tab -->
-                <div id="general-tab" class="settings-tab active">
-                    <div class="border-b border-gray-200">
-                        <div class="px-6 py-4">
-                            <h2 class="text-lg font-semibold text-gray-800 flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                </svg>
-                                ตั้งค่าข้อมูลโรงเรียน
-                            </h2>
-                        </div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <!-- School Info Form -->
-                        <form action="#" method="POST" class="space-y-6 max-w-3xl" id="school-settings-form" onsubmit="event.preventDefault(); saveSettings('school');">
-                            @csrf
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <label for="school_name" class="block text-sm font-medium text-gray-700">ชื่อโรงเรียน</label>
-                                    <div class="relative rounded-md shadow-sm">
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                            </svg>
+                        <ul class="nav nav-tabs mb-4" id="settingsTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="school-tab" data-bs-toggle="tab" data-bs-target="#school" type="button" role="tab" aria-controls="school" aria-selected="true">
+                                    <i class="fas fa-school me-2"></i>ข้อมูลโรงเรียน
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="rules-tab" data-bs-toggle="tab" data-bs-target="#rules" type="button" role="tab" aria-controls="rules" aria-selected="false">
+                                    <i class="fas fa-gavel me-2"></i>กฎระเบียบและคะแนน
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="system-tab" data-bs-toggle="tab" data-bs-target="#system" type="button" role="tab" aria-controls="system" aria-selected="false">
+                                    <i class="fas fa-sliders-h me-2"></i>ตั้งค่าทั่วไป
+                                </button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="settingsTabContent">
+                            <!-- ข้อมูลโรงเรียน -->
+                            <div class="tab-pane fade show active" id="school" role="tabpanel" aria-labelledby="school-tab">
+                                <form action="#" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+                                    @csrf
+                                    <div class="card border mb-4">
+                                        <div class="card-header bg-light">
+                                            <h6 class="mb-0">ข้อมูลทั่วไปของโรงเรียน</h6>
                                         </div>
-                                        <input type="text" id="school_name" name="school_name" value="โรงเรียนมัธยมตัวอย่าง" class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200">
-                                    </div>
-                                </div>
-                                
-                                <div class="space-y-2">
-                                    <label for="school_id" class="block text-sm font-medium text-gray-700">รหัสโรงเรียน</label>
-                                    <div class="relative rounded-md shadow-sm">
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="school_id" name="school_id" value="1234567890" class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="space-y-2">
-                                <label for="school_address" class="block text-sm font-medium text-gray-700">ที่อยู่โรงเรียน</label>
-                                <div class="relative rounded-md shadow-sm">
-                                    <div class="absolute top-2 left-0 pl-3 flex items-center pointer-events-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                        </svg>
-                                    </div>
-                                    <textarea id="school_address" name="school_address" rows="3" class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200">123 ถนนตัวอย่าง ตำบลตัวอย่าง อำเภอเมือง จังหวัดตัวอย่าง 12345</textarea>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label for="school_type" class="block text-sm font-medium text-gray-700">ประเภทโรงเรียน</label>
-                                <div class="mt-2 grid grid-cols-3 gap-3">
-                                    <div>
-                                        <input type="radio" name="school_type" id="type_elementary" value="elementary" class="peer hidden" checked>
-                                        <label for="type_elementary" class="flex p-3 items-center justify-center text-gray-800 bg-white border border-gray-200 rounded-lg cursor-pointer hover:border-indigo-600 peer-checked:border-indigo-600 peer-checked:bg-indigo-50 transition-all duration-200">
-                                            <div class="block">
-                                                <div class="flex items-center justify-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                                    </svg>
-                                                    ประถมศึกษา
+                                        <div class="card-body">
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label for="school_name" class="form-label">ชื่อโรงเรียน <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" id="school_name" name="school_name" value="{{ old('school_name', $settings['school_name'] ?? 'โรงเรียนมัธยมตัวอย่าง') }}" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="school_id" class="form-label">รหัสโรงเรียน <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" id="school_id" name="school_id" value="{{ old('school_id', $settings['school_id'] ?? '1234567890') }}" required>
                                                 </div>
                                             </div>
-                                        </label>
-                                    </div>
-                                    
-                                    <div>
-                                        <input type="radio" name="school_type" id="type_middle" value="middle" class="peer hidden">
-                                        <label for="type_middle" class="flex p-3 items-center justify-center text-gray-800 bg-white border border-gray-200 rounded-lg cursor-pointer hover:border-indigo-600 peer-checked:border-indigo-600 peer-checked:bg-indigo-50 transition-all duration-200">
-                                            <div class="block">
-                                                <div class="flex items-center justify-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                                                    </svg>
-                                                    มัธยมศึกษาตอนต้น
+                                            <div class="row mb-3">
+                                                <div class="col-md-12">
+                                                    <label for="school_address" class="form-label">ที่อยู่</label>
+                                                    <textarea class="form-control" id="school_address" name="school_address" rows="3">{{ old('school_address', $settings['school_address'] ?? '123 ถนนตัวอย่าง แขวง/ตำบล ตัวอย่าง เขต/อำเภอ ตัวอย่าง จังหวัด กรุงเทพมหานคร 10000') }}</textarea>
                                                 </div>
                                             </div>
-                                        </label>
-                                    </div>
-                                    
-                                    <div>
-                                        <input type="radio" name="school_type" id="type_high" value="high" class="peer hidden">
-                                        <label for="type_high" class="flex p-3 items-center justify-center text-gray-800 bg-white border border-gray-200 rounded-lg cursor-pointer hover:border-indigo-600 peer-checked:border-indigo-600 peer-checked:bg-indigo-50 transition-all duration-200">
-                                            <div class="block">
-                                                <div class="flex items-center justify-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                                    </svg>
-                                                    มัธยมศึกษาตอนปลาย
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label for="school_type" class="form-label">ประเภทโรงเรียน <span class="text-danger">*</span></label>
+                                                    <select class="form-select" id="school_type" name="school_type" required>
+                                                        <option value="elementary" {{ (old('school_type', $settings['school_type'] ?? '') == 'elementary') ? 'selected' : '' }}>ประถมศึกษา</option>
+                                                        <option value="middle" {{ (old('school_type', $settings['school_type'] ?? 'middle') == 'middle') ? 'selected' : '' }}>มัธยมศึกษาตอนต้น</option>
+                                                        <option value="high" {{ (old('school_type', $settings['school_type'] ?? '') == 'high') ? 'selected' : '' }}>มัธยมศึกษาตอนปลาย</option>
+                                                        <option value="full" {{ (old('school_type', $settings['school_type'] ?? '') == 'full') ? 'selected' : '' }}>มัธยมศึกษา (ม.1-ม.6)</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="school_logo" class="form-label">โลโก้โรงเรียน</label>
+                                                    <input type="file" class="form-control" id="school_logo" name="school_logo">
+                                                    <small class="text-muted">รองรับไฟล์ PNG, JPG ขนาดไม่เกิน 2MB</small>
                                                 </div>
                                             </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex justify-end">
-                                <button type="button" class="save-settings bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-5 py-2 rounded-lg hover:from-indigo-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 shadow-md transform transition-all duration-200 flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    บันทึกข้อมูล
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <div class="border-t border-b border-gray-200 bg-gray-50">
-                        <div class="px-6 py-4">
-                            <h2 class="text-lg font-semibold text-gray-800 flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                                ตั้งค่าปีการศึกษา
-                            </h2>
-                        </div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <!-- Academic Year Form -->
-                        <form action="#" method="POST" class="space-y-6 max-w-3xl" id="academic-settings-form" onsubmit="event.preventDefault(); saveSettings('academic');">
-                            @csrf
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <label for="academic_year" class="block text-sm font-medium text-gray-700">ปีการศึกษาปัจจุบัน</label>
-                                    <div class="relative rounded-md shadow-sm">
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="academic_year" name="academic_year" value="2566" class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200">
-                                    </div>
-                                </div>
-                                
-                                <div class="space-y-2">
-                                    <label for="semester" class="block text-sm font-medium text-gray-700">ภาคเรียน</label>
-                                    <div class="relative">
-                                        <select id="semester" name="semester" class="block w-full rounded-md border-gray-300 pl-10 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200">
-                                            <option value="1" selected>1</option>
-                                            <option value="2">2</option>
-                                        </select>
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                            </svg>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <label for="term_start_date" class="block text-sm font-medium text-gray-700">วันเริ่มต้นภาคเรียน</label>
-                                    <div class="relative rounded-md shadow-sm">
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                            </svg>
+
+                                    <div class="card border mb-4">
+                                        <div class="card-header bg-light">
+                                            <h6 class="mb-0">ข้อมูลผู้บริหาร</h6>
                                         </div>
-                                        <input type="date" id="term_start_date" name="term_start_date" value="2023-05-15" class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200">
-                                    </div>
-                                </div>
-                                
-                                <div class="space-y-2">
-                                    <label for="term_end_date" class="block text-sm font-medium text-gray-700">วันสิ้นสุดภาคเรียน</label>
-                                    <div class="relative rounded-md shadow-sm">
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                            </svg>
-                                        </div>
-                                        <input type="date" id="term_end_date" name="term_end_date" value="2023-10-15" class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex justify-end">
-                                <button type="button" class="save-settings bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-5 py-2 rounded-lg hover:from-indigo-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 shadow-md transform transition-all duration-200 flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    บันทึกข้อมูล
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <div class="border-t border-b border-gray-200 bg-gray-50">
-                        <div class="px-6 py-4">
-                            <h2 class="text-lg font-semibold text-gray-800 flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                                ตั้งค่าระบบ
-                            </h2>
-                        </div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <!-- System Settings Form -->
-                        <form action="#" method="POST" class="space-y-6 max-w-3xl" id="system-settings-form" onsubmit="event.preventDefault(); saveSettings('system');">
-                            @csrf
-                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200">
-                                    <div class="flex items-start mb-5">
-                                        <div class="flex items-center h-5">
-                                            <input type="checkbox" id="notifications_enabled" name="notifications_enabled" class="h-5 w-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500 transition-all duration-200" checked>
-                                        </div>
-                                        <div class="ml-3">
-                                            <label for="notifications_enabled" class="text-sm font-medium text-gray-700 block">เปิดใช้งานการแจ้งเตือนอัตโนมัติ</label>
-                                            <p class="text-xs text-gray-500">แจ้งเตือนเมื่อมีการเปลี่ยนแปลงคะแนนนักเรียน</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="flex items-start">
-                                        <div class="flex items-center h-5">
-                                            <input type="checkbox" id="dashboard_summary" name="dashboard_summary" class="h-5 w-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500 transition-all duration-200" checked>
-                                        </div>
-                                        <div class="ml-3">
-                                            <label for="dashboard_summary" class="text-sm font-medium text-gray-700 block">แสดงข้อมูลสรุปบนหน้าแดชบอร์ด</label>
-                                            <p class="text-xs text-gray-500">แสดงสถิติและข้อมูลสรุปบนหน้าหลัก</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200">
-                                    <div class="flex items-start mb-5">
-                                        <div class="flex items-center h-5">
-                                            <input type="checkbox" id="teacher_access" name="teacher_access" class="h-5 w-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500 transition-all duration-200">
-                                        </div>
-                                        <div class="ml-3">
-                                            <label for="teacher_access" class="text-sm font-medium text-gray-700 block">อนุญาตให้ครูทั่วไปเข้าถึงรายงานทั้งหมด</label>
-                                            <p class="text-xs text-gray-500">ครูสามารถดูรายงานรวมของทุกระดับชั้นได้</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="space-y-2">
-                                        <label for="automatic_backup" class="block text-sm font-medium text-gray-700">การสำรองข้อมูลอัตโนมัติ</label>
-                                        <div class="relative">
-                                            <select id="automatic_backup" name="automatic_backup" class="block w-full rounded-md border-gray-300 pl-10 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition-all duration-200">
-                                                <option value="none">ไม่ต้องการ</option>
-                                                <option value="daily">ทุกวัน</option>
-                                                <option value="weekly" selected>ทุกสัปดาห์</option>
-                                                <option value="monthly">ทุกเดือน</option>
-                                            </select>
-                                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-                                                </svg>
+                                        <div class="card-body">
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label for="director_name" class="form-label">ชื่อผู้อำนวยการ</label>
+                                                    <input type="text" class="form-control" id="director_name" name="director_name" value="{{ old('director_name', $settings['director_name'] ?? '') }}">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="deputy_name" class="form-label">ชื่อรองผู้อำนวยการฝ่ายกิจการนักเรียน</label>
+                                                    <input type="text" class="form-control" id="deputy_name" name="deputy_name" value="{{ old('deputy_name', $settings['deputy_name'] ?? '') }}">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    
+                                    <div class="text-end">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-save me-2"></i>บันทึกข้อมูลโรงเรียน
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                            
-                            <div class="mt-6 flex justify-end">
-                                <button type="button" class="save-settings bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-5 py-2 rounded-lg hover:from-indigo-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 shadow-md transform transition-all duration-200 flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    บันทึกข้อมูล
-                                </button>
+
+                            <!-- กฎระเบียบและคะแนน -->
+                            <div class="tab-pane fade" id="rules" role="tabpanel" aria-labelledby="rules-tab">
+                                <form action="#" method="POST" class="needs-validation" novalidate>
+                                    @csrf
+                                    <div class="card border mb-4">
+                                        <div class="card-header bg-light">
+                                            <h6 class="mb-0">คะแนนความประพฤติพื้นฐาน</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label for="base_score" class="form-label">คะแนนเริ่มต้นประจำปีการศึกษา <span class="text-danger">*</span></label>
+                                                    <input type="number" class="form-control" id="base_score" name="base_score" value="{{ old('base_score', $settings['base_score'] ?? 100) }}" min="0" max="1000" required>
+                                                    <small class="text-muted">คะแนนเริ่มต้นเมื่อเข้าสู่ปีการศึกษาใหม่</small>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="critical_score" class="form-label">คะแนนขั้นวิกฤต <span class="text-danger">*</span></label>
+                                                    <input type="number" class="form-control" id="critical_score" name="critical_score" value="{{ old('critical_score', $settings['critical_score'] ?? 60) }}" min="0" max="100" required>
+                                                    <small class="text-muted">คะแนนที่ต้องเข้าสู่กระบวนการดูแลเป็นพิเศษ</small>
+                                                </div>
+                                            </div>
+                                            <div class="form-check form-switch mb-3">
+                                                <input class="form-check-input" type="checkbox" id="reset_yearly" name="reset_yearly" {{ old('reset_yearly', $settings['reset_yearly'] ?? true) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="reset_yearly">รีเซ็ตคะแนนทุกปีการศึกษา</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card border mb-4">
+                                        <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0">หมวดหมู่ความประพฤติ</h6>
+                                            <button type="button" class="btn btn-sm btn-outline-primary" id="addCategoryBtn">
+                                                <i class="fas fa-plus me-1"></i>เพิ่มหมวดหมู่
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="categories-container">
+                                                @foreach (old('categories', $settings['categories'] ?? [
+                                                    ['id' => 'attendance', 'name' => 'การเข้าเรียน', 'description' => 'การมาโรงเรียนและเข้าเรียนตามเวลา'],
+                                                    ['id' => 'uniform', 'name' => 'เครื่องแต่งกาย', 'description' => 'การแต่งกายตามระเบียบของโรงเรียน'],
+                                                    ['id' => 'behavior', 'name' => 'พฤติกรรมทั่วไป', 'description' => 'พฤติกรรมการปฏิบัติตามระเบียบโรงเรียน']
+                                                ]) as $index => $category)
+                                                <div class="card border mb-3 category-item">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="category_id_{{ $index }}" class="form-label">รหัส</label>
+                                                                <input type="text" class="form-control" id="category_id_{{ $index }}" name="categories[{{ $index }}][id]" value="{{ $category['id'] }}" required>
+                                                            </div>
+                                                            <div class="col-md-8 mb-3">
+                                                                <label for="category_name_{{ $index }}" class="form-label">ชื่อหมวดหมู่</label>
+                                                                <input type="text" class="form-control" id="category_name_{{ $index }}" name="categories[{{ $index }}][name]" value="{{ $category['name'] }}" required>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <label for="category_desc_{{ $index }}" class="form-label">คำอธิบาย</label>
+                                                                <textarea class="form-control" id="category_desc_{{ $index }}" name="categories[{{ $index }}][description]" rows="2">{{ $category['description'] }}</textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-end mt-2">
+                                                            <button type="button" class="btn btn-sm btn-outline-danger remove-category">
+                                                                <i class="fas fa-trash me-1"></i>ลบหมวดหมู่
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-save me-2"></i>บันทึกกฎระเบียบและคะแนน
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
-                    </div>
-                    
-                    <!-- Information Alert -->
-                    <div class="p-6 border-t border-gray-100">
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg">
-                            <div class="flex">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm text-blue-800">
-                                        การเปลี่ยนแปลงการตั้งค่าบางอย่างอาจส่งผลต่อการทำงานของระบบ โปรดพิจารณาอย่างรอบคอบก่อนทำการเปลี่ยนแปลง
-                                    </p>
-                                </div>
+
+                            <!-- ตั้งค่าทั่วไป -->
+                            <div class="tab-pane fade" id="system" role="tabpanel" aria-labelledby="system-tab">
+                                <form action="#" method="POST" class="needs-validation" novalidate>
+                                    @csrf
+                                    <div class="card border mb-4">
+                                        <div class="card-header bg-light">
+                                            <h6 class="mb-0">การแจ้งเตือน</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-check form-switch mb-3">
+                                                <input class="form-check-input" type="checkbox" id="enable_parent_notification" name="enable_parent_notification" {{ old('enable_parent_notification', $settings['enable_parent_notification'] ?? true) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="enable_parent_notification">การแจ้งเตือนผู้ปกครองเมื่อมีการหักคะแนน</label>
+                                            </div>
+                                            <div class="form-check form-switch mb-3">
+                                                <input class="form-check-input" type="checkbox" id="enable_teacher_notification" name="enable_teacher_notification" {{ old('enable_teacher_notification', $settings['enable_teacher_notification'] ?? true) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="enable_teacher_notification">การแจ้งเตือนครูประจำชั้นเมื่อมีการหักคะแนน</label>
+                                            </div>
+                                            <div class="form-check form-switch mb-3">
+                                                <input class="form-check-input" type="checkbox" id="enable_critical_alert" name="enable_critical_alert" {{ old('enable_critical_alert', $settings['enable_critical_alert'] ?? true) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="enable_critical_alert">การแจ้งเตือนเมื่อคะแนนถึงขั้นวิกฤต</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card border mb-4">
+                                        <div class="card-header bg-light">
+                                            <h6 class="mb-0">ปีการศึกษา</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label for="current_year" class="form-label">ปีการศึกษาปัจจุบัน <span class="text-danger">*</span></label>
+                                                    <input type="number" class="form-control" id="current_year" name="current_year" value="{{ old('current_year', $settings['current_year'] ?? date('Y') + 543) }}" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="current_semester" class="form-label">ภาคเรียนปัจจุบัน <span class="text-danger">*</span></label>
+                                                    <select class="form-select" id="current_semester" name="current_semester" required>
+                                                        <option value="1" {{ (old('current_semester', $settings['current_semester'] ?? 1) == 1) ? 'selected' : '' }}>ภาคเรียนที่ 1</option>
+                                                        <option value="2" {{ (old('current_semester', $settings['current_semester'] ?? '') == 2) ? 'selected' : '' }}>ภาคเรียนที่ 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card border mb-4">
+                                        <div class="card-header bg-light">
+                                            <h6 class="mb-0">ข้อมูลการเข้าถึง</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label for="parent_access_duration" class="form-label">ระยะเวลาการเข้าถึงข้อมูลของผู้ปกครอง (ชั่วโมง)</label>
+                                                    <input type="number" class="form-control" id="parent_access_duration" name="parent_access_duration" value="{{ old('parent_access_duration', $settings['parent_access_duration'] ?? 24) }}" min="1" max="168">
+                                                    <small class="text-muted">จำนวนชั่วโมงที่ผู้ปกครองสามารถเข้าดูข้อมูลได้หลังจากยืนยันตัวตน</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-save me-2"></i>บันทึกการตั้งค่าทั่วไป
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Scores Settings Tab (Hidden) -->
-                <div id="scores-tab" class="settings-tab hidden">
-                    <div class="flex flex-col items-center justify-center p-12">
-                        <div class="text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                            </svg>
-                            <h3 class="mt-4 text-xl font-medium text-gray-900">กำลังพัฒนาฟีเจอร์</h3>
-                            <p class="mt-2 text-gray-500">ระบบนี้กำลังอยู่ในระหว่างการพัฒนา และจะเปิดให้ใช้งานเร็วๆ นี้</p>
-                            <p class="mt-1 text-sm text-indigo-600">กรุณาลองอีกครั้งในภายหลัง</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Notifications Settings Tab (Hidden) -->
-                <div id="notifications-tab" class="settings-tab hidden">
-                    <div class="flex flex-col items-center justify-center p-12">
-                        <div class="text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                            </svg>
-                            <h3 class="mt-4 text-xl font-medium text-gray-900">กำลังพัฒนาฟีเจอร์</h3>
-                            <p class="mt-2 text-gray-500">ระบบนี้กำลังอยู่ในระหว่างการพัฒนา และจะเปิดให้ใช้งานเร็วๆ นี้</p>
-                            <p class="mt-1 text-sm text-indigo-600">กรุณาลองอีกครั้งในภายหลัง</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Backup Settings Tab (Hidden) -->
-                <div id="backup-tab" class="settings-tab hidden">
-                    <div class="flex flex-col items-center justify-center p-12">
-                        <div class="text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                            </svg>
-                            <h3 class="mt-4 text-xl font-medium text-gray-900">กำลังพัฒนาฟีเจอร์</h3>
-                            <p class="mt-2 text-gray-500">ระบบนี้กำลังอยู่ในระหว่างการพัฒนา และจะเปิดให้ใช้งานเร็วๆ นี้</p>
-                            <p class="mt-1 text-sm text-indigo-600">กรุณาลองอีกครั้งในภายหลัง</p>
                         </div>
                     </div>
                 </div>
@@ -439,194 +267,86 @@
 
 @section('scripts')
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Tab navigation
-        const tabButtons = document.querySelectorAll('.settings-nav-item');
-        const tabs = document.querySelectorAll('.settings-tab');
+    // Initialize Bootstrap validation
+    (() => {
+        'use strict';
+
+        const forms = document.querySelectorAll('.needs-validation');
         
-        tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                tabButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    const icon = btn.querySelector('div:first-child');
-                    icon.classList.remove('bg-indigo-100', 'text-indigo-600');
-                    icon.classList.add('bg-gray-100', 'text-gray-600');
-                });
-                
-                // Add active class to clicked button
-                this.classList.add('active');
-                const icon = this.querySelector('div:first-child');
-                icon.classList.remove('bg-gray-100', 'text-gray-600');
-                icon.classList.add('bg-indigo-100', 'text-indigo-600');
-                
-                // Show correct tab
-                const tabName = this.getAttribute('data-tab');
-                tabs.forEach(tab => {
-                    tab.classList.add('hidden');
-                });
-                document.getElementById(`${tabName}-tab`).classList.remove('hidden');
-                
-                // Check if this is not the general tab
-                if (tabName !== 'general') {
-                    // Display in-development notification
-                    setTimeout(() => {
-                        showNotification('กำลังพัฒนาฟีเจอร์', 'ฟีเจอร์นี้อยู่ระหว่างการพัฒนาและจะเปิดให้ใช้งานในเร็วๆ นี้', 'info');
-                    }, 500);
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
                 }
-            });
+                form.classList.add('was-validated');
+            }, false);
         });
-        
-        // Save settings buttons
-        const saveButtons = document.querySelectorAll('.save-settings');
-        saveButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Animation effect
-                this.classList.add('scale-95');
-                setTimeout(() => {
-                    this.classList.remove('scale-95');
-                }, 100);
-                
-                // Show success notification
-                showNotification('บันทึกการตั้งค่าเรียบร้อย', 'การตั้งค่าของคุณได้รับการบันทึกเรียบร้อยแล้ว', 'success');
-            });
-        });
-        
-        // Helper function to show notifications
-        function showNotification(title, message, type = 'success') {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `fixed bottom-6 right-6 bg-white rounded-lg shadow-xl border-l-4 ${type === 'success' ? 'border-green-500' : 'border-blue-500'} p-4 z-50 transform transition-all duration-500 translate-y-20 opacity-0`;
-            notification.style.maxWidth = '400px';
+    })();
+
+    // Handle category management
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add new category
+        document.getElementById('addCategoryBtn').addEventListener('click', function() {
+            const categoriesContainer = document.getElementById('categories-container');
+            const categoryItems = document.querySelectorAll('.category-item');
+            const newIndex = categoryItems.length;
             
-            // Set notification content
-            notification.innerHTML = `
-                <div class="flex items-start">
-                    <div class="flex-shrink-0">
-                        ${type === 'success' ? 
-                            `<svg class="h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                            </svg>` : 
-                            `<svg class="h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg>`
-                        }
-                    </div>
-                    <div class="ml-3 w-0 flex-1">
-                        <h3 class="text-sm font-medium text-gray-800">${title}</h3>
-                        <div class="mt-1">
-                            <p class="text-sm text-gray-500">${message}</p>
+            const newCategoryHtml = `
+                <div class="card border mb-3 category-item">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="category_id_${newIndex}" class="form-label">รหัส</label>
+                                <input type="text" class="form-control" id="category_id_${newIndex}" name="categories[${newIndex}][id]" required>
+                            </div>
+                            <div class="col-md-8 mb-3">
+                                <label for="category_name_${newIndex}" class="form-label">ชื่อหมวดหมู่</label>
+                                <input type="text" class="form-control" id="category_name_${newIndex}" name="categories[${newIndex}][name]" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="category_desc_${newIndex}" class="form-label">คำอธิบาย</label>
+                                <textarea class="form-control" id="category_desc_${newIndex}" name="categories[${newIndex}][description]" rows="2"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="ml-4 flex-shrink-0 flex">
-                        <button class="inline-flex text-gray-400 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150">
-                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
+                        <div class="text-end mt-2">
+                            <button type="button" class="btn btn-sm btn-outline-danger remove-category">
+                                <i class="fas fa-trash me-1"></i>ลบหมวดหมู่
+                            </button>
+                        </div>
                     </div>
                 </div>
             `;
             
-            // Append to body
-            document.body.appendChild(notification);
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = newCategoryHtml.trim();
+            const newCategory = tempDiv.firstChild;
             
-            // Show animation
-            setTimeout(() => {
-                notification.classList.remove('translate-y-20', 'opacity-0');
-            }, 10);
+            categoriesContainer.appendChild(newCategory);
             
-            // Set up close button
-            const closeButton = notification.querySelector('button');
-            closeButton.addEventListener('click', () => {
-                hideNotification(notification);
-            });
-            
-            // Auto close after 4 seconds
-            setTimeout(() => {
-                hideNotification(notification);
-            }, 4000);
-        }
+            // Add event listener for the new remove button
+            newCategory.querySelector('.remove-category').addEventListener('click', removeCategory);
+        });
         
-        function hideNotification(notification) {
-            notification.classList.add('translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                notification.remove();
-            }, 500);
+        // Remove category
+        document.querySelectorAll('.remove-category').forEach(button => {
+            button.addEventListener('click', removeCategory);
+        });
+        
+        function removeCategory() {
+            if (confirm('คุณแน่ใจหรือไม่ที่จะลบหมวดหมู่นี้?')) {
+                this.closest('.category-item').remove();
+            }
         }
     });
 
-    function saveSettings(type) {
-        // Animation effect
-        const button = document.querySelector(`#${type}-settings-form .save-settings`);
-        button.classList.add('scale-95');
-        setTimeout(() => {
-            button.classList.remove('scale-95');
-        }, 100);
-        
-        // Show success notification
-        showNotification('บันทึกการตั้งค่าเรียบร้อย', 'การตั้งค่าของคุณได้รับการบันทึกเรียบร้อยแล้ว', 'success');
-    }
+    // ป้องกันการ submit form ทั้งหมดในหน้านี้
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('ฟีเจอร์นี้อยู่ระหว่างการพัฒนา');
+            return false;
+        });
+    });
 </script>
-@endsection
-
-@section('styles')
-<style>
-    /* Additional animations and styling */
-    .settings-nav-item {
-        display: flex;
-        align-items: center;
-        padding: 0.75rem;
-        margin: 0.25rem 0;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
-    
-    .settings-nav-item:hover {
-        background-color: #F9FAFB;
-    }
-    
-    .settings-nav-item.active {
-        background-color: #EEF2FF;
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .settings-tab {
-        animation: fadeIn 0.3s ease-out;
-    }
-    
-    /* Better focus styles */
-    input:focus, select:focus, textarea:focus {
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
-    }
-    
-    /* Improved animations */
-    .save-settings {
-        transition: all 0.2s ease;
-    }
-    
-    .save-settings:hover {
-        transform: translateY(-1px);
-    }
-    
-    .save-settings:active {
-        transform: scale(0.98);
-    }
-    
-    /* Animated elements */
-    @keyframes pulse {
-        0% { opacity: 0.8; }
-        50% { opacity: 1; }
-        100% { opacity: 0.8; }
-    }
-    
-    .animate-pulse {
-        animation: pulse 3s infinite;
-    }
-</style>
 @endsection

@@ -299,7 +299,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="px-6 py-3 bg-gray-50 border-t text-gray-500 text-sm" id="table-info">
+            <div class=" ms-2 px-6 py-3 bg-gray-50 border-t text-gray-500 text-sm" id="table-info">
                 แสดง <span class="font-medium">{{ count($students) }}</span> รายการ จากทั้งหมด <span class="font-medium">{{ count($students) }}</span> รายการ
             </div>
         </div>

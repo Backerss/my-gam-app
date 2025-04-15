@@ -82,6 +82,11 @@ Route::prefix('behavior')->name('behavior.')->group(function () {
     Route::post('/settings/save-school', [SettingsController::class, 'saveSchoolSettings'])->name('settings.save-school');
     Route::post('/settings/save-academic', [SettingsController::class, 'saveAcademicSettings'])->name('settings.save-academic');
     Route::post('/settings/save-system', [SettingsController::class, 'saveSystemSettings'])->name('settings.save-system');
+    
+    // เพิ่ม routes สำหรับการบันทึกการตั้งค่า
+    Route::post('/behavior/settings/save-school', [SettingsController::class, 'saveSchoolSettings'])->name('behavior.settings.save-school');
+    Route::post('/settings/save-academic', [SettingsController::class, 'saveAcademicSettings'])->name('settings.save-academic');
+    Route::post('/settings/save-system', [SettingsController::class, 'saveSystemSettings'])->name('settings.save-system');
 });
 
 // Student Routes - จัดการข้อมูลนักเรียน
