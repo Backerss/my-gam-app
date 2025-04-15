@@ -116,3 +116,17 @@ Route::prefix('profile')->name('profile.')->group(function () {
     Route::get('/', [ProfileController::class, 'show'])->name('show');
     Route::put('/update', [ProfileController::class, 'update'])->name('update');
 });
+
+// เพิ่มเส้นทางสำหรับจัดการผู้ปกครอง
+// เพิ่มเส้นทางสำหรับจัดการผู้ปกครอง
+Route::prefix('behavior')->name('behavior.')->group(function () {
+    Route::prefix('parents')->name('parents.')->group(function () {
+        Route::get('/', [App\Http\Controllers\ParentManagementController::class, 'index'])->name('index');
+        Route::get('/create', [App\Http\Controllers\ParentManagementController::class, 'create'])->name('create');
+        Route::post('/', [App\Http\Controllers\ParentManagementController::class, 'store'])->name('store');
+        Route::get('/{id}', [App\Http\Controllers\ParentManagementController::class, 'show'])->name('show');
+        Route::get('/{id}/edit', [App\Http\Controllers\ParentManagementController::class, 'edit'])->name('edit');
+        Route::put('/{id}', [App\Http\Controllers\ParentManagementController::class, 'update'])->name('update');
+        Route::delete('/{id}', [App\Http\Controllers\ParentManagementController::class, 'destroy'])->name('destroy');
+    });
+});
