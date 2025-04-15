@@ -23,6 +23,12 @@
                         <i class="bi bi-people nav-icon"></i>
                         <span>จัดการนักเรียน</span>
                     </a>
+
+                    <!-- Parent Management Link -->
+                    <a href="{{ route('behavior.parents.index') }}" class="nav-item-custom {{ request()->is('behavior/parents*') ? 'active' : '' }}">
+                        <i class="bi bi-person-lines-fill nav-icon"></i>
+                        <span>จัดการผู้ปกครอง</span>
+                    </a>
                     
                     <!-- Reports Link -->
                     <a href="{{ route('behavior.reports') }}" class="nav-item-custom {{ request()->is('reports/behavior*') ? 'active' : '' }}">
@@ -74,6 +80,12 @@
                     <a href="{{ route('behavior.reports') }}" class="d-flex flex-column align-items-center text-decoration-none {{ request()->is('reports/behavior*') ? 'text-primary' : 'text-muted' }}">
                         <i class="bi bi-bar-chart"></i>
                         <span class="small">รายงาน</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ route('behavior.parents.index') }}" class="d-flex flex-column align-items-center text-decoration-none {{ request()->is('behavior/parents*') ? 'text-primary' : 'text-muted' }}">
+                        <i class="bi bi-person-lines-fill"></i>
+                        <span class="small">ผู้ปกครอง</span>
                     </a>
                 </div>
             </div>
