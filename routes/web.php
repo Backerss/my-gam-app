@@ -118,7 +118,6 @@ Route::prefix('profile')->name('profile.')->group(function () {
 });
 
 // เพิ่มเส้นทางสำหรับจัดการผู้ปกครอง
-// เพิ่มเส้นทางสำหรับจัดการผู้ปกครอง
 Route::prefix('behavior')->name('behavior.')->group(function () {
     Route::prefix('parents')->name('parents.')->group(function () {
         Route::get('/', [App\Http\Controllers\ParentManagementController::class, 'index'])->name('index');
