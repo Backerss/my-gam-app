@@ -25,7 +25,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234f46e5' fill-opacity='0.03'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234f46e5' fill-opacity='0.03'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
         .login-container {
@@ -141,84 +141,180 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('login') }}" class="mb-0">
-                    @csrf
-
-                    <div class="mb-3">
-                        <label for="email" class="form-label small fw-medium">อีเมล</label>
-                        <div class="input-with-icon">
-                            <div class="input-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <input
-                                id="email"
-                                type="email"
-                                name="email"
-                                value="{{ old('email') }}"
-                                required
-                                autocomplete="email"
-                                autofocus
-                                class="form-control form-control-icon-left @error('email') is-invalid @enderror"
-                                placeholder="ระบุอีเมลของคุณ"
-                            >
-                        </div>
-                        @error('email')
-                            <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <label for="password" class="form-label small fw-medium">รหัสผ่าน</label>
-                            @if (Route::has('password.request'))
-                                <a class="small text-indigo text-decoration-none" href="{{ route('password.request') }}">
-                                    ลืมรหัสผ่าน?
-                                </a>
-                            @endif
-                        </div>
-                        <div class="input-with-icon">
-                            <div class="input-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </div>
-                            <input
-                                id="password"
-                                type="password"
-                                name="password"
-                                required
-                                autocomplete="current-password"
-                                class="form-control form-control-icon-left @error('password') is-invalid @enderror"
-                                placeholder="ระบุรหัสผ่านของคุณ"
-                            >
-                        </div>
-                        @error('password')
-                            <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3 form-check">
-                        <input
-                            id="remember"
-                            type="checkbox"
-                            name="remember"
-                            class="form-check-input"
-                            {{ old('remember') ? 'checked' : '' }}
-                        >
-                        <label for="remember" class="form-check-label small">
-                            จดจำฉันไว้
-                        </label>
-                    </div>
-
-                    <div class="mb-0">
-                        <button type="submit" class="btn btn-primary w-100 py-2">
-                            เข้าสู่ระบบ
+                <!-- Login Type Tabs -->
+                <ul class="nav nav-tabs mb-4" id="loginTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="student-teacher-tab" data-bs-toggle="tab" 
+                            data-bs-target="#student-teacher-login" type="button" role="tab" aria-selected="true">
+                            นักเรียน/ครู
                         </button>
-                    </div>
-                </form>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="parent-tab" data-bs-toggle="tab" 
+                            data-bs-target="#parent-login" type="button" role="tab" aria-selected="false">
+                            ผู้ปกครอง
+                        </button>
+                    </li>
+                </ul>
 
+                <div class="tab-content" id="loginTabsContent">
+                    <!-- Student/Teacher Login Form -->
+                    <div class="tab-pane fade show active" id="student-teacher-login" role="tabpanel">
+                        <form method="POST" action="{{ route('login') }}" class="mb-0">
+                            @csrf
+                            <input type="hidden" name="login_type" value="email">
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label small fw-medium">อีเมล</label>
+                                <div class="input-with-icon">
+                                    <div class="input-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                    <input
+                                        id="email"
+                                        type="email"
+                                        name="email"
+                                        value="{{ old('email') }}"
+                                        required
+                                        autocomplete="email"
+                                        autofocus
+                                        class="form-control form-control-icon-left @error('email') is-invalid @enderror"
+                                        placeholder="ระบุอีเมลของคุณ"
+                                    >
+                                </div>
+                                @error('email')
+                                    <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <label for="password" class="form-label small fw-medium">รหัสผ่าน</label>
+                                    @if (Route::has('password.request'))
+                                        <a class="small text-indigo text-decoration-none" href="{{ route('password.request') }}">
+                                            ลืมรหัสผ่าน?
+                                        </a>
+                                    @endif
+                                </div>
+                                <div class="input-with-icon">
+                                    <div class="input-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                        </svg>
+                                    </div>
+                                    <input
+                                        id="password"
+                                        type="password"
+                                        name="password"
+                                        required
+                                        autocomplete="current-password"
+                                        class="form-control form-control-icon-left @error('password') is-invalid @enderror"
+                                        placeholder="ระบุรหัสผ่านของคุณ"
+                                    >
+                                </div>
+                                @error('password')
+                                    <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <input
+                                    id="remember"
+                                    type="checkbox"
+                                    name="remember"
+                                    class="form-check-input"
+                                    {{ old('remember') ? 'checked' : '' }}
+                                >
+                                <label for="remember" class="form-check-label small">
+                                    จดจำฉันไว้
+                                </label>
+                            </div>
+
+                            <div class="mb-0">
+                                <button type="submit" class="btn btn-primary w-100 py-2">
+                                    เข้าสู่ระบบ
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Parent Login Form -->
+                    <div class="tab-pane fade" id="parent-login" role="tabpanel">
+                        <form method="POST" action="{{ route('login') }}" class="mb-0">
+                            @csrf
+                            <input type="hidden" name="login_type" value="phone">
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label small fw-medium">เบอร์โทรศัพท์</label>
+                                <div class="input-with-icon">
+                                    <div class="input-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                    </div>
+                                    <input
+                                        id="phone"
+                                        type="text"
+                                        name="phone"
+                                        value="{{ old('phone') }}"
+                                        required
+                                        autocomplete="tel"
+                                        class="form-control form-control-icon-left @error('phone') is-invalid @enderror"
+                                        placeholder="ระบุเบอร์โทรศัพท์ของคุณ"
+                                    >
+                                </div>
+                                @error('phone')
+                                    <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="student_id" class="form-label small fw-medium">รหัสนักเรียน</label>
+                                <div class="input-with-icon">
+                                    <div class="input-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+                                        </svg>
+                                    </div>
+                                    <input
+                                        id="student_id"
+                                        type="text"
+                                        name="student_id"
+                                        value="{{ old('student_id') }}"
+                                        required
+                                        class="form-control form-control-icon-left @error('student_id') is-invalid @enderror"
+                                        placeholder="ระบุรหัสนักเรียนของบุตรหลาน"
+                                    >
+                                </div>
+                                @error('student_id')
+                                    <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <input
+                                    id="remember_parent"
+                                    type="checkbox"
+                                    name="remember"
+                                    class="form-check-input"
+                                    {{ old('remember') ? 'checked' : '' }}
+                                >
+                                <label for="remember_parent" class="form-check-label small">
+                                    จดจำฉันไว้
+                                </label>
+                            </div>
+
+                            <div class="mb-0">
+                                <button type="submit" class="btn btn-primary w-100 py-2">
+                                    เข้าสู่ระบบ
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
                 @if (Route::has('register'))
                     <div class="text-center mt-4">
                         <p class="small text-muted mb-0">ยังไม่มีบัญชีผู้ใช้? 
@@ -238,7 +334,7 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS (optional) -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

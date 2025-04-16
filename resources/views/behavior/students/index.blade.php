@@ -240,25 +240,30 @@
                                     <div class="flex flex-col">
                                         <div class="relative">
                                             <div class="flex items-center mb-1">
-                                                <div class="w-full bg-gray-200 flex-grow mr-2">
-                                                    <div class="h-2.5 {{ $student['current_score'] >= 90 ? 'bg-green-500' : ($student['current_score'] >= 80 ? 'bg-green-400' : ($student['current_score'] >= 70 ? 'bg-yellow-400' : ($student['current_score'] >= 60 ? 'bg-orange-400' : 'bg-red-500'))) }}"
+                                                <div class="w-full bg-gray-200 flex-grow mr-2 relative h-7"> <!-- Increased height -->
+                                                    <div class="h-full {{ $student['current_score'] >= 90 ? 'bg-green-500' : ($student['current_score'] >= 80 ? 'bg-green-400' : ($student['current_score'] >= 70 ? 'bg-yellow-400' : ($student['current_score'] >= 60 ? 'bg-orange-400' : 'bg-red-500'))) }}"
                                                         style="width: {{ min($student['current_score'], 100) }}%">
+                                                    </div>
+                                                    
+                                                    <!-- Emoji overlay with positioning -->
+                                                    <div class="absolute top-0 bottom-0 flex items-center justify-center h-full rounded-full z-20 transition-all duration-300"
+                                                        style="left: calc({{ min($student['current_score'], 100) }}% - 12px);">
+                                                        <div class="w-6 h-6 flex items-center justify-center bg-white rounded-full shadow-sm">
+                                                            @if($student['current_score'] >= 90)
+                                                                <span class="text-sm">😄</span>
+                                                            @elseif($student['current_score'] >= 80)
+                                                                <span class="text-sm">🙂</span>
+                                                            @elseif($student['current_score'] >= 70)
+                                                                <span class="text-sm">😐</span>
+                                                            @elseif($student['current_score'] >= 60)
+                                                                <span class="text-sm">😕</span>
+                                                            @else
+                                                                <span class="text-sm">😟</span>
+                                                            @endif
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="text-sm font-semibold mr-1">{{ $student['current_score'] }}</div>
-                                                <span class="text-xs font-bold {{ $student['current_score'] >= 90 ? 'text-green-600' : ($student['current_score'] >= 80 ? 'text-green-500' : ($student['current_score'] >= 70 ? 'text-yellow-600' : ($student['current_score'] >= 60 ? 'text-orange-600' : 'text-red-600'))) }}">
-                                                    @if($student['current_score'] >= 90)
-                                                        😄
-                                                    @elseif($student['current_score'] >= 80)
-                                                        🙂
-                                                    @elseif($student['current_score'] >= 70)
-                                                        😐
-                                                    @elseif($student['current_score'] >= 60)
-                                                        😕
-                                                    @else
-                                                        😟
-                                                    @endif
-                                                </span>
                                             </div>
                                         </div>
                                     </div>
