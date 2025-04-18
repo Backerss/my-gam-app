@@ -187,13 +187,17 @@
         // Toggle sidebar on mobile
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('d-none');
-            sidebar.classList.toggle('open');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
+            
+            // ใช้วิธีเดียวกับเดิมที่ใช้ใน toggle sidebar
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
             
             // Show/hide mobile navigation when sidebar is toggled
             const mobileNav = document.querySelector('.navigation-container nav.d-md-none');
             if (mobileNav) {
-                if (sidebar.classList.contains('open')) {
+                if (sidebar.classList.contains('active')) {
                     mobileNav.style.display = 'none';
                 } else {
                     mobileNav.style.display = 'flex';

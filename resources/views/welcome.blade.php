@@ -157,10 +157,8 @@
             
             <div class="container-fluid py-5">
                 <div class="row align-items-center">
-                    <div class="col-md-2 text-md-start text-center mb-3 mb-md-0">
+                    <div class="col-md text-center">
                         <img src="{{ asset('img/logo.png') }}" alt="Logo" class="img-fluid" style="max-height: 150px;">
-                    </div>
-                    <div class="col-md-10 text-center">
                         <h2 class="display-5 fw-bold text-white mb-3">ระบบสารสนเทศจัดการคะแนนวินัยโรงเรียนนวมินทราชูทิศมัชฌิ</h2>
                         <p class="text-white opacity-75">
                             บันทึก ติดตาม และวิเคราะห์พฤติกรรมนักเรียนอย่างเป็นระบบ เพื่อการพัฒนาที่ยั่งยืน
