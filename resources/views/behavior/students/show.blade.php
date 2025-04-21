@@ -2,6 +2,23 @@
 
 @section('content')
 <div class="fade-in">
+    <!-- ส่วนหัวหน้าเพจ -->
+    <div class="bg-white rounded-lg shadow-sm mb-4 p-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="fs-4 fw-bold text-dark mb-0">รายละเอียดนักเรียน</h1>
+            
+            <!-- แสดงปุ่มย้อนกลับเฉพาะกรณีที่เป็นครูเท่านั้น -->
+            @if(auth()->user()->users_role === 'teacher')
+            <a href="{{ route('behavior.students') }}" class="btn btn-outline-secondary d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left me-2" viewBox="0 0 16 16">
+                    <path d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                </svg>
+                กลับไปหน้ารายการนักเรียน
+            </a>
+            @endif
+        </div>
+    </div>
+
     <!-- Header with student info -->
     <div class="bg-primary p-4 rounded-lg shadow mb-4" style="background-color: #6366f1 !important;">
         <div class="d-flex justify-content-between align-items-center">
@@ -218,15 +235,18 @@
                 </div>
             </div>
             
-            <!-- Back Button -->
-            <div class="d-flex mt-4">
-                <a href="{{ route('behavior.students') }}" class="d-flex align-items-center text-decoration-none" style="color: #4f46e5;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left me-1" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-                    </svg>
-                    กลับไปหน้ารายการนักเรียน
+            <!-- แสดงปุ่มแก้ไข/ลบเฉพาะกรณีที่เป็นครูเท่านั้น -->
+            @if(auth()->user()->users_role === 'teacher')
+            <div class="mt-4 d-flex gap-2">
+                <a href="{{ route('behavior.students.edit', $student->students_id) }}" class="btn btn-primary">
+                    <i class="bi bi-pencil me-2"></i>แก้ไขข้อมูล
                 </a>
+                
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteStudentModal">
+                    <i class="bi bi-trash me-2"></i>ลบข้อมูล
+                </button>
             </div>
+            @endif
         </div>
     </div>
 </div>

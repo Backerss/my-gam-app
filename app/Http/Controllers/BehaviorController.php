@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class BehaviorController extends Controller
 {
+    /**
+     * แสดงหน้าการหักคะแนนพฤติกรรม
+     */
     public function deduct()
     {
+        // สร้างหน้าหักคะแนนพฤติกรรม
         return view('behavior.deduct');
     }
 
@@ -116,27 +121,17 @@ class BehaviorController extends Controller
      */
     public function showStudent($id)
     {
-        // ในระบบจริง ดึงข้อมูลจาก Database ตาม ID
-        $student = [
-            'id' => $id,
-            'name' => 'ธงชัย ใจดี',
-            'class' => 'ม.1/1',
-            'student_id' => '1234567890',
-            'id_card' => '1234567890123',
-            'current_score' => 95,
-            'score_change' => 5,
-            'address' => '123 หมู่ 5 ต.สันทราย อ.เมือง จ.เชียงใหม่ 50000',
-            'phone' => '081-234-5678',
-            'parent_name' => 'นายสมพงษ์ ใจดี',
-            'parent_phone' => '089-876-5432',
-            'incidents' => [
-                ['date' => '2023-09-15', 'description' => 'มาสาย', 'points' => -5],
-                ['date' => '2023-10-05', 'description' => 'ช่วยเหลืองานครู', 'points' => 10],
-                ['date' => '2023-10-15', 'description' => 'ช่วยเพื่อนเก็บขยะ', 'points' => 5],
-            ],
-        ];
-
-        return view('behavior.students.show', compact('student'));
+        // ดึงข้อมูลนักเรียนจาก ID
+        $student = Student::findOrFail($id);
+        
+        // ตรวจสอบสิทธิ์การเข้าถึง
+        $user = auth()->user();
+        
+        // เพิ่มตัวแปรเพื่อแสดงว่าผู้ใช้เป็นครูหรือไม่ (สำหรับใช้ซ่อน/แสดงปุ่มต่างๆ)
+        $isTeacher = ($user->users_role === 'teacher');
+        
+        // ส่วนนี้ค่อยปรับตามจริงว่ามีข้อมูลอะไรบ้าง
+        return view('behavior.students.show', compact('student', 'isTeacher'));
     }
 
     /**

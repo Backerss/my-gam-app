@@ -8,6 +8,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ParentManagementController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,86 +23,112 @@ Route::get('/', function () {
 });
 
 // Auth Routes 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-Route::get('/register', function() {
-    return view('auth.register');
-})->name('register');
-Route::post('/register', [AuthController::class, 'register']);
-
-// Behavior Routes - ไม่มีการตรวจสอบสิทธิ์
-Route::prefix('behavior')->name('behavior.')->group(function () {
-    // Dashboard - เป็นหน้าแรก
-    Route::get('/', [BehaviorController::class, 'dashboard'])->name('dashboard');
+Route::get('/login', [LoginController::class, 'showLoginForm'])
+    ->name('login')
+    ->middleware('guest');
     
-    // หน้าตัดคะแนน
-    Route::get('/deduct', [BehaviorController::class, 'deduct'])->name('deduct');
+Route::post('/login', [LoginController::class, 'login'])
+    ->middleware('guest');
     
-    // รายงานต่างๆ
-    Route::get('/reports', [ReportController::class, 'index'])->name('reports');
-    Route::get('/reports/student/{id}', [ReportController::class, 'studentDetail'])->name('reports.student');
-    Route::get('/reports/export', [ReportController::class, 'exportPdf'])->name('reports.export');
-    Route::get('/reports/student/{id}/export', [ReportController::class, 'exportPdf'])->name('reports.student.export');
+Route::post('/logout', [LoginController::class, 'logout'])
+    ->name('logout');
 
-    // หน้าโปรไฟล์
+// Route สำหรับหน้า Dashboard ตามประเภทผู้ใช้
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        $user = auth()->user();
+        
+        // นำทางไปตาม role
+        switch ($user->users_role) {
+            case 'teacher':
+                return redirect()->route('behavior.dashboard');
+            case 'student':
+                $student = $user->student;
+                if ($student) {
+                    return redirect()->route('behavior.students.show', ['id' => $student->students_id]);
+                }
+                return view('dashboard');
+            case 'parent':
+                $parent = $user->parent;
+                if ($parent && $parent->student) {
+                    return redirect()->route('behavior.students.show', ['id' => $parent->student->students_id]);
+                }
+                return view('dashboard');
+            default:
+                return view('dashboard');
+        }
+    })->name('dashboard');
+});
+
+// Behavior Routes - จัดการพฤติกรรมนักเรียน
+Route::prefix('behavior')->name('behavior.')->middleware(['auth'])->group(function () {
+    // หน้า Dashboard สำหรับครู
+    Route::get('/dashboard', [BehaviorController::class, 'dashboard'])->name('dashboard');
+    
+    // ระบบการแจ้งเตือน
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications');
+    Route::post('/notifications/mark-read', [NotificationController::class, 'markAsRead'])->name('notifications.mark-read');
+    
+    // จัดการโปรไฟล์ผู้ใช้งาน
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-
-    // หน้าหลักจัดการนักเรียน
-    Route::get('/students', [App\Http\Controllers\BehaviorController::class, 'students'])->name('students');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.update.password');
+    Route::put('/profile/update-preferences', [ProfileController::class, 'updatePreferences'])->name('profile.update.preferences');
     
-    // เพิ่ม route สำหรับ create
-    Route::get('/students/create', [App\Http\Controllers\BehaviorController::class, 'createStudent'])->name('students.create');
-    Route::post('/students', [App\Http\Controllers\BehaviorController::class, 'storeStudent'])->name('students.store');
+    // การตั้งค่าระบบ
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings')->middleware('role:teacher');
+    Route::put('/settings/update', [SettingsController::class, 'update'])->name('settings.update')->middleware('role:teacher');
     
-    // หน้าแสดงรายละเอียดนักเรียน
-    Route::get('/students/{id}', [App\Http\Controllers\BehaviorController::class, 'showStudent'])->name('students.show');
+    // หน้าแสดงข้อมูลนักเรียนรายบุคคล (ใช้สำหรับนักเรียนและผู้ปกครอง)
+    Route::get('/students/{id}', [BehaviorController::class, 'showStudent'])->name('students.show');
     
-    // เพิ่ม route อื่นๆ สำหรับนักเรียน เช่น แก้ไข ลบ ฯลฯ
-    Route::get('/students/{id}/edit', [App\Http\Controllers\BehaviorController::class, 'editStudent'])->name('students.edit');
-    Route::put('/students/{id}', [App\Http\Controllers\BehaviorController::class, 'updateStudent'])->name('students.update');
-    Route::delete('/students/{id}', [App\Http\Controllers\BehaviorController::class, 'destroyStudent'])->name('students.destroy');
-    
-    // Route สำหรับการแจ้งเตือน
-    Route::get('/notification', [NotificationController::class, 'index'])->name('notifications');
-    Route::post('/notification/mark-as-read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
-    
-    // เพิ่ม routes สำหรับการแจ้งเตือน
-    Route::get('/notifications', [App\Http\Controllers\NotificationController::class, 'index'])
-        ->name('notifications');
-    Route::post('/notifications/mark-read', [App\Http\Controllers\NotificationController::class, 'markAsRead'])
-        ->name('notifications.mark-read');
-
-    // เส้นทางสำหรับหน้าตั้งค่า
-    Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
-    
-    // เส้นทางสำหรับบันทึกการตั้งค่าในแต่ละส่วน
-    Route::post('/settings/save-school', [SettingsController::class, 'saveSchoolSettings'])->name('settings.save-school');
-    Route::post('/settings/save-academic', [SettingsController::class, 'saveAcademicSettings'])->name('settings.save-academic');
-    Route::post('/settings/save-system', [SettingsController::class, 'saveSystemSettings'])->name('settings.save-system');
-    
-    // เพิ่ม routes สำหรับการบันทึกการตั้งค่า
-    Route::post('/behavior/settings/save-school', [SettingsController::class, 'saveSchoolSettings'])->name('behavior.settings.save-school');
-    Route::post('/settings/save-academic', [SettingsController::class, 'saveAcademicSettings'])->name('settings.save-academic');
-    Route::post('/settings/save-system', [SettingsController::class, 'saveSystemSettings'])->name('settings.save-system');
+    // หน้าสำหรับครูเท่านั้น
+    Route::middleware(['role:teacher'])->group(function () {
+        // การจัดการนักเรียน
+        Route::get('/students', [BehaviorController::class, 'students'])->name('students');
+        Route::get('/students/create', [BehaviorController::class, 'createStudent'])->name('students.create');
+        Route::post('/students', [BehaviorController::class, 'storeStudent'])->name('students.store');
+        Route::get('/students/{id}/edit', [BehaviorController::class, 'editStudent'])->name('students.edit');
+        Route::put('/students/{id}', [BehaviorController::class, 'updateStudent'])->name('students.update');
+        Route::delete('/students/{id}', [BehaviorController::class, 'destroyStudent'])->name('students.destroy');
+        
+        // การหักคะแนนพฤติกรรม
+        Route::get('/deduct', [BehaviorController::class, 'deduct'])->name('deduct');
+        Route::post('/deduct', [BehaviorController::class, 'processDeduct'])->name('deduct.process');
+        
+        // การดูรายงาน
+        Route::get('/reports', [ReportController::class, 'index'])->name('reports');
+        Route::get('/reports/export', [ReportController::class, 'exportPdf'])->name('reports.export');
+        Route::get('/reports/student/{id}', [ReportController::class, 'studentDetail'])->name('reports.student');
+        Route::get('/reports/student/{id}/export', [ReportController::class, 'exportPdf'])->name('reports.student.export');
+        
+        // การจัดการผู้ปกครอง
+        Route::prefix('parents')->name('parents.')->group(function () {
+            Route::get('/', [ParentManagementController::class, 'index'])->name('index');
+            Route::get('/create', [ParentManagementController::class, 'create'])->name('create');
+            Route::post('/', [ParentManagementController::class, 'store'])->name('store');
+            Route::get('/{id}', [ParentManagementController::class, 'show'])->name('show');
+            Route::get('/{id}/edit', [ParentManagementController::class, 'edit'])->name('edit');
+            Route::put('/{id}', [ParentManagementController::class, 'update'])->name('update');
+            Route::delete('/{id}', [ParentManagementController::class, 'destroy'])->name('destroy');
+        });
+    });
 });
 
-// Student Routes - จัดการข้อมูลนักเรียน
-Route::prefix('students')->name('students.')->group(function () {
-    Route::get('/', [App\Http\Controllers\StudentController::class, 'index'])->name('index');
-    Route::get('/create', [App\Http\Controllers\StudentController::class, 'create'])->name('create');
-    Route::post('/', [App\Http\Controllers\StudentController::class, 'store'])->name('store');
-    Route::get('/{id}', [App\Http\Controllers\StudentController::class, 'show'])->name('show');
-    Route::get('/{id}/edit', [App\Http\Controllers\StudentController::class, 'edit'])->name('edit');
-    Route::put('/{id}', [App\Http\Controllers\StudentController::class, 'update'])->name('update');
-    Route::delete('/{id}', [App\Http\Controllers\StudentController::class, 'destroy'])->name('destroy');
-    Route::post('/import', [App\Http\Controllers\StudentController::class, 'import'])->name('import');
-    Route::get('/export', [App\Http\Controllers\StudentController::class, 'export'])->name('export');
+// Student Routes - จัดการข้อมูลนักเรียนจากเมนูหลัก
+Route::prefix('students')->name('students.')->middleware(['auth', 'role:teacher'])->group(function () {
+    Route::get('/', [StudentController::class, 'index'])->name('index');
+    Route::get('/create', [StudentController::class, 'create'])->name('create');
+    Route::post('/', [StudentController::class, 'store'])->name('store');
+    Route::get('/{id}', [StudentController::class, 'show'])->name('show');
+    Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [StudentController::class, 'update'])->name('update');
+    Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
+    Route::post('/import', [StudentController::class, 'import'])->name('import');
+    Route::get('/export', [StudentController::class, 'export'])->name('export');
 });
 
-// Parent Access Routes
+// Parent Access Routes - สำหรับการเข้าถึงของผู้ปกครองภายนอก
 Route::prefix('parent')->name('parent.')->group(function () {
     Route::get('/access', [ParentController::class, 'showAccessForm'])->name('access');
     Route::post('/verify', [ParentController::class, 'verifyStudent'])->name('verify');
@@ -108,21 +137,10 @@ Route::prefix('parent')->name('parent.')->group(function () {
         ->middleware('verify.parent.access');
 });
 
-// เพิ่ม route สำหรับ profile
-Route::prefix('profile')->name('profile.')->group(function () {
+// Profile Routes - เข้าถึงได้จากเมนูหลัก
+Route::prefix('profile')->name('profile.')->middleware(['auth'])->group(function () {
     Route::get('/', [ProfileController::class, 'show'])->name('show');
     Route::put('/update', [ProfileController::class, 'update'])->name('update');
-});
-
-// เพิ่มเส้นทางสำหรับจัดการผู้ปกครอง
-Route::prefix('behavior')->name('behavior.')->group(function () {
-    Route::prefix('parents')->name('parents.')->group(function () {
-        Route::get('/', [App\Http\Controllers\ParentManagementController::class, 'index'])->name('index');
-        Route::get('/create', [App\Http\Controllers\ParentManagementController::class, 'create'])->name('create');
-        Route::post('/', [App\Http\Controllers\ParentManagementController::class, 'store'])->name('store');
-        Route::get('/{id}', [App\Http\Controllers\ParentManagementController::class, 'show'])->name('show');
-        Route::get('/{id}/edit', [App\Http\Controllers\ParentManagementController::class, 'edit'])->name('edit');
-        Route::put('/{id}', [App\Http\Controllers\ParentManagementController::class, 'update'])->name('update');
-        Route::delete('/{id}', [App\Http\Controllers\ParentManagementController::class, 'destroy'])->name('destroy');
-    });
+    Route::put('/update-password', [ProfileController::class, 'updatePassword'])->name('update.password');
+    Route::put('/update-preferences', [ProfileController::class, 'updatePreferences'])->name('update.preferences');
 });

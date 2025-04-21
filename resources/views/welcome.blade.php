@@ -142,7 +142,7 @@
                         @if (Route::has('login'))
                             <div class="d-flex gap-2">
                                 @auth
-                                    <a href="{{ url('/dashboard') }}" class="btn btn-light text-primary">แดชบอร์ด</a>
+                                    <a href="{{ url('/behavior') }}" class="btn btn-light text-primary">แดชบอร์ด</a>
                                 @else
                                     <a href="{{ route('login') }}" class="btn btn-light text-primary">เข้าสู่ระบบ</a>
                                     @if (Route::has('register'))
